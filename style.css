@@ -353,6 +353,24 @@ footer {
     gap: 12px;
   }
 }
+.hero,
+.features,
+.about,
+.contact,
+.assessment,
+.differentiators {
+  text-align: center;
+}
+
+.hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.card-grid,
+.diff-grid {
+  justify-content: center;
+}
 
 
 
