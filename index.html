@@ -78,21 +78,24 @@
     </div>
   </section>
 
-  <section id="assessment" class="assessment reveal">
+  <section class="assessment" id="assessment">
+  <div class="assessment-wrapper">
     <h2>Book Your Free AWS Assessment</h2>
-    <form action="https://formsubmit.co/YOUR_EMAIL_HERE" method="POST" class="assessment-form">
-      <input type="text" name="name" placeholder="Full Name" required />
-      <input type="email" name="email" placeholder="Email Address" required />
-      <select name="service" required>
-        <option disabled selected>Select Service</option>
+    <form class="assessment-form">
+      <input type="text" placeholder="Full Name" required />
+      <input type="email" placeholder="Email Address" required />
+      <select required>
+        <option value="">Select Service</option>
+        <option value="architecture">Architecture Review</option>
         <option value="migration">Cloud Migration</option>
         <option value="security">Security Audit</option>
-        <option value="cost">Cost Optimization</option>
       </select>
-      <input type="datetime-local" name="preferred_time" />
+      <input type="datetime-local" required />
       <button type="submit" class="button primary">Submit</button>
     </form>
-  </section>
+  </div>
+</section>
+
 
   <section id="about" class="about reveal">
     <h2>About Elite Web Services</h2>
