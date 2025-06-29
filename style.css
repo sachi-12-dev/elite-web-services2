@@ -138,7 +138,7 @@ ul {
 }
 
 .primary:hover {
-  background: #c79e29;
+  background: #f2c400;
 }
 
 .secondary {
@@ -358,3 +358,4 @@ footer {
     gap: 12px;
   }
 }
+
