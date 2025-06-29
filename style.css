@@ -244,6 +244,12 @@ footer {
     text-align: center;
   }
 }
+.hero-content h1,
+.hero-content p {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
 
 
 
