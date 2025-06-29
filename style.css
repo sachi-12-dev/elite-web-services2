@@ -116,11 +116,13 @@ ul {
   margin-bottom: 16px;
 }
 
-.subtitle {
+.hero-content p {
   font-size: 1.25rem;
   color: #ddd;
+  margin-top: 10px;
 }
 
+/* CTA BUTTONS */
 .cta-buttons {
   margin-top: 30px;
   display: flex;
@@ -244,22 +246,7 @@ footer {
     text-align: center;
   }
 }
-.hero-content {
-  max-width: 900px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
 
-.hero-content h1,
-.hero-content p {
-  text-align: center;
-  margin: 0 auto;
-  width: 100%;
-}
 
 
 
