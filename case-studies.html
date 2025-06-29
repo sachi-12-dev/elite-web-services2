@@ -8,20 +8,23 @@
   <script defer src="script.js"></script>
 </head>
 <body>
-  <nav class="navbar" id="navbar">
+  <header class="navbar">
     <div class="logo-container">
+      <a href="index.html">
+        <img src="assets/logo.png" alt="Elite Web Services Logo" class="navbar-logo" />
+      </a>
       <span class="brand-name">Elite Web Services</span>
     </div>
-    <ul class="nav-links">
-      <li><a href="index.html#services">Services</a></li>
-      <li><a href="index.html#about">About</a></li>
-      <li><a href="case-studies.html" class="active">Case Studies</a></li>
-      <li><a href="blog.html">Blog</a></li>
-      <li><a href="resources.html">Resources</a></li>
-      <li><a href="index.html#contact">Contact</a></li>
-      <li><button id="darkToggle" class="dark-toggle" aria-label="Toggle dark mode">🌙</button></li>
-    </ul>
-  </nav>
+    <nav class="nav-links">
+      <a href="index.html#services">Services</a>
+      <a href="index.html#about">About</a>
+      <a href="case-studies.html" class="active">Case Studies</a>
+      <a href="blog.html">Blog</a>
+      <a href="resources.html">Resources</a>
+      <a href="index.html#contact">Contact</a>
+      <button id="darkToggle" class="dark-toggle" aria-label="Toggle dark mode">🌙</button>
+    </nav>
+  </header>
 
   <section id="case-studies" class="features reveal">
     <h2>Client Success Stories</h2>
@@ -46,4 +49,3 @@
   </footer>
 </body>
 </html>
-
