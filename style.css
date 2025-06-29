@@ -194,6 +194,18 @@ body.dark section h2 {
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
   transition: transform 0.3s ease;
 }
+/* Why Choose Cards */
+.why-cards .card {
+  border-left: 4px solid #d4af37;
+  background: #1a1a1a;
+  color: #eee;
+}
+
+body:not(.dark) .why-cards .card {
+  background: #fff;
+  color: #222;
+}
+
 
 .card:hover {
   transform: translateY(-6px);
