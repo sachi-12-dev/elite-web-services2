@@ -280,6 +280,73 @@ body.dark .contact h2 {
   border-radius: 10px;
   margin-top: 20px;
 }
+.assessment {
+  background: #0c0c0c;
+  color: white;
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.assessment h2 {
+  color: #d4af37;
+  font-size: 2rem;
+  margin-bottom: 40px;
+}
+
+.assessment-wrapper {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.assessment-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+}
+
+.assessment-form input,
+.assessment-form select {
+  padding: 12px 16px;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  flex: 1 1 220px;
+  min-width: 200px;
+}
+
+.assessment-form input:focus,
+.assessment-form select:focus {
+  border-color: #d4af37;
+  outline: none;
+}
+
+.assessment-form button {
+  padding: 12px 28px;
+  background: #d4af37;
+  color: #111;
+  font-weight: 600;
+  font-size: 1rem;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  flex: 1 1 auto;
+}
+
+.assessment-form button:hover {
+  background: #c89f2a;
+}
+
+body.dark .assessment {
+  background: #1a1a1a;
+}
+
+body.dark .assessment-form input,
+body.dark .assessment-form select {
+  background: #222;
+  color: #eee;
+  border-color: #444;
+}
 
 
 
