@@ -15,7 +15,7 @@
   color: #eee;
   padding: 20px;
   position: sticky;
-  top: 72px; /* matches navbar height */
+  top: 72px; /* matches your navbar height */
   height: calc(100vh - 72px);
   overflow-y: auto;
 }
@@ -62,7 +62,7 @@ body.dark .features h2 {
   color: #d4af37;
 }
 
-/* --- Card Grid --- */
+/* --- Card Grid & Cards --- */
 .card-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -78,6 +78,15 @@ body.dark .features h2 {
 }
 .card:hover {
   transform: translateY(-4px);
+}
+.card h3 {
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+  color: #d4af37;
+}
+.card p {
+  font-size: 1rem;
+  color: #444;
 }
 body.dark .card {
   background: #2a2a2a;
