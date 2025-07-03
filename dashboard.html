@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Monitoring Dashboard | Elite Web Services</title>
+  <title>MCC Dashboard | Elite Web Services</title>
   <link rel="stylesheet" href="style.css" />
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script defer src="script.js"></script>
@@ -28,44 +28,110 @@
     </nav>
   </header>
 
-  <section id="monitoring" class="features reveal">
-    <h2>Monitoring Dashboard</h2>
-    <div class="card-grid">
-      <div class="card">
-        <h3>Total AWS Spend</h3>
-        <p>$1,920</p>
-      </div>
-      <div class="card">
-        <h3>EC2 Instances Running</h3>
-        <p>27</p>
-      </div>
-      <div class="card">
-        <h3>Critical Security Findings</h3>
-        <p>6 issues</p>
-      </div>
-      <div class="card">
-        <h3>Accounts Monitored</h3>
-        <p>12 accounts</p>
-      </div>
-    </div>
-  </section>
+  <div class="dashboard-wrapper" style="display: grid; grid-template-columns: 220px 1fr; min-height: 100vh;">
+    <aside class="sidebar" style="background:#111; color:#fff; padding:20px;">
+      <h2 style="color:#d4af37; font-size:1.2rem;">MCC Navigation</h2>
+      <ul style="list-style:none; padding-left:0;">
+        <li><a href="#overview" style="color:#fff;">Overview</a></li>
+        <li><a href="#spend" style="color:#fff;">AWS Spend</a></li>
+        <li><a href="#ec2" style="color:#fff;">EC2 Insights</a></li>
+        <li><a href="#security" style="color:#fff;">Security</a></li>
+        <li><a href="#recommendations" style="color:#fff;">Recommendations</a></li>
+        <li><a href="#alerts" style="color:#fff;">Alerts</a></li>
+      </ul>
+    </aside>
 
-  <section class="features reveal">
-    <h2>Monthly AWS Spend</h2>
-    <canvas id="costChart" height="100"></canvas>
-  </section>
+    <main style="padding:40px 20px;">
+      <section id="overview" class="features reveal">
+        <h2>Monitoring Overview</h2>
+        <div class="card-grid">
+          <div class="card">
+            <h3>Total AWS Spend</h3>
+            <p>$1,920</p>
+          </div>
+          <div class="card">
+            <h3>EC2 Instances Running</h3>
+            <p>27</p>
+          </div>
+          <div class="card">
+            <h3>Critical Security Findings</h3>
+            <p>6 issues</p>
+          </div>
+          <div class="card">
+            <h3>Accounts Monitored</h3>
+            <p>12 accounts</p>
+          </div>
+        </div>
+      </section>
 
-  <section class="features reveal">
-    <h2>EC2 Instance Count by Region</h2>
-    <canvas id="ec2Chart" height="100"></canvas>
-  </section>
+      <section id="spend" class="features reveal">
+        <h2>Monthly AWS Spend</h2>
+        <canvas id="costChart" height="100"></canvas>
+      </section>
+
+      <section id="ec2" class="features reveal">
+        <h2>EC2 Instance Count by Region</h2>
+        <canvas id="ec2Chart" height="100"></canvas>
+      </section>
+
+      <section id="security" class="features reveal">
+        <h2>Security Findings</h2>
+        <div class="card-grid">
+          <div class="card">
+            <h3>High Risk</h3>
+            <p>3 findings</p>
+          </div>
+          <div class="card">
+            <h3>Medium Risk</h3>
+            <p>5 findings</p>
+          </div>
+          <div class="card">
+            <h3>Low Risk</h3>
+            <p>14 findings</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="recommendations" class="features reveal">
+        <h2>Optimization Recommendations</h2>
+        <div class="card-grid">
+          <div class="card">
+            <h3>Rightsize EC2</h3>
+            <p>i-0abc123def: t3.medium is underutilized. Suggest t3.micro.</p>
+          </div>
+          <div class="card">
+            <h3>Enable S3 Lifecycle</h3>
+            <p>Move infrequently accessed data to Glacier to cut costs.</p>
+          </div>
+          <div class="card">
+            <h3>Review Idle RDS</h3>
+            <p>1 instance hasn't had queries in 30 days. Consider shutdown.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="alerts" class="features reveal">
+        <h2>Latest Alerts</h2>
+        <div class="card-grid">
+          <div class="card">
+            <h3>Unauthorized Access Attempt</h3>
+            <p>IAM user with no MFA tried accessing EC2 from unknown IP.</p>
+          </div>
+          <div class="card">
+            <h3>Cost Spike Detected</h3>
+            <p>Lambda usage increased 240% in last 24 hours.</p>
+          </div>
+          <div class="card">
+            <h3>S3 Bucket Public</h3>
+            <p>Bucket <code>dev-logs</code> has public read access enabled.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
 
   <footer>
     <p>&copy; 2025 Elite Web Services. All rights reserved.</p>
   </footer>
 </body>
 </html>
-
-
-
-
