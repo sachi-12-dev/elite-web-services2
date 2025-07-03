@@ -62,6 +62,9 @@ window.addEventListener('DOMContentLoaded', () => {
       },
       options: {
         responsive: true,
+        plugins: {
+          legend: { display: true }
+        },
         scales: {
           y: { beginAtZero: true }
         }
@@ -82,6 +85,9 @@ window.addEventListener('DOMContentLoaded', () => {
       },
       options: {
         responsive: true,
+        plugins: {
+          legend: { display: false }
+        },
         scales: {
           y: { beginAtZero: true }
         }
