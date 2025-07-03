@@ -456,3 +456,92 @@ body.dark .card {
     display: none;
   }
 }
+/* ————————————————
+   Dashboard Polishing Styles
+   ———————————————— */
+
+.dashboard-wrapper {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 24px;
+}
+
+.sidebar {
+  position: sticky;
+  top: 80px; /* below navbar */
+}
+
+.sidebar ul li a {
+  display: block;
+  padding: 10px 16px;
+  border-radius: 4px;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.sidebar ul li a:hover,
+.sidebar ul li a.active {
+  background: #d4af37;
+  color: #111;
+}
+
+main {
+  background: white;
+  border-radius: 12px;
+  padding: 32px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+}
+
+.features {
+  margin-bottom: 40px;
+}
+
+.features h2 {
+  margin-bottom: 24px;
+}
+
+.card-grid {
+  gap: 24px;
+}
+
+.card {
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+}
+
+.chart-container {
+  background: white;
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+  margin-top: 16px;
+}
+
+.chart-container canvas {
+  width: 100% !important;
+  height: auto !important;
+}
+
+/* Dark mode overrides */
+body.dark main,
+body.dark .chart-container {
+  background: #1e1e1e;
+}
+
+body.dark .sidebar {
+  background: #1a1a1a;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .dashboard-wrapper {
+    grid-template-columns: 1fr;
+  }
+  .sidebar {
+    display: none;
+  }
+}
