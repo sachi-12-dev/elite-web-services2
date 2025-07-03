@@ -344,6 +344,27 @@ section h2 {
     margin-top: 1rem;
   }
 }
+/* Mobile nav toggle */
+.nav-toggle { display: none; background: none; border: none; }
+.hamburger, .hamburger::before, .hamburger::after {
+  width: 24px; height: 3px; background: var(--text);
+  border-radius: 2px; position: relative; display: block;
+  transition: transform 0.3s;
+}
+.hamburger::before, .hamburger::after { content: ''; position: absolute; }
+.hamburger::before { top: -8px; } .hamburger::after { top: 8px; }
+
+.nav-menu { display: flex; }
+.nav-links { display: flex; align-items: center; }
+.nav-links li + li { margin-left: 1.5rem; }
+
+@media (max-width: 768px) {
+  .nav-toggle { display: block; }
+  .nav-menu { display: none; width: 100%; background: var(--nav-bg); }
+  .nav-menu.open { display: block; }
+  .nav-links { flex-direction: column; padding: 1rem 0; }
+  .nav-links li + li { margin: 1rem 0 0 0; }
+}
 
 
 
