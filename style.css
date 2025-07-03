@@ -359,33 +359,100 @@ body.dark .assessment-form select {
   color: #eee;
   border-color: #444;
 }
-/* MONITORING DASHBOARD CUSTOM STYLES (reuses existing cards + grid) */
-#monitoring h2,
-.features h2 {
-  color: #222;
+/* ————————————————
+   EWSC Dashboard Styles
+   ———————————————— */
+
+.dashboard-wrapper {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  min-height: 100vh;
 }
 
-body.dark #monitoring h2,
+.sidebar {
+  background: #111;
+  color: #eee;
+  padding: 20px;
+}
+
+.sidebar h2 {
+  font-size: 1.4rem;
+  color: #d4af37;
+  margin-bottom: 20px;
+}
+
+.sidebar ul {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.sidebar ul li a {
+  color: #ccc;
+  font-weight: 500;
+}
+
+.sidebar ul li a:hover {
+  color: #fff;
+}
+
+main {
+  padding: 40px 20px;
+}
+
+/* Ensure features + cards style applies */
+.features {
+  padding: 40px 0;
+}
+.features h2 {
+  font-size: 1.8rem;
+  margin-bottom: 24px;
+  color: #222;
+}
 body.dark .features h2 {
   color: #d4af37;
 }
 
-/* Optional: Style canvas charts for spacing */
-canvas {
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+.card {
+  background: white;
+  border-left: 5px solid #d4af37;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+  transition: transform 0.3s ease;
+}
+.card h3 {
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+  color: #d4af37;
+}
+.card p {
+  font-size: 1rem;
+  color: #444;
+}
+body.dark .card {
+  background: #1e1e1e;
+  color: #ccc;
+}
+
+/* Canvas sizing */
+.features canvas {
   max-width: 100%;
   margin: 0 auto;
   display: block;
-  padding-top: 10px;
 }
 
-/* Optional: Adjust card size on dashboard */
-#monitoring .card-grid .card {
-  min-width: 250px;
-  text-align: center;
-}
-
-@media (max-width: 600px) {
-  canvas {
-    height: auto;
+/* Mobile */
+@media (max-width: 768px) {
+  .dashboard-wrapper {
+    grid-template-columns: 1fr;
+  }
+  .sidebar {
+    display: none;
   }
 }
