@@ -215,7 +215,9 @@ section h2 {
 .pricing-item ul {
   margin-bottom: 1.5rem;
 }
-.btn-block { width: 100%; }
+.btn-block {
+  width: 100%;
+}
 
 /* ======================= Testimonials ======================= */
 .testimonial-slider {
@@ -229,11 +231,19 @@ section h2 {
   flex: 0 0 auto;
   scroll-snap-align: start;
 }
-.testimonial-item p { font-style: italic; margin-bottom: 1rem; }
-.testimonial-item h5 { text-align: right; color: var(--primary); }
+.testimonial-item p {
+  font-style: italic;
+  margin-bottom: 1rem;
+}
+.testimonial-item h5 {
+  text-align: right;
+  color: var(--primary);
+}
 
 /* ======================= FAQ ======================= */
-.faq-item { margin-bottom: 1.5rem; }
+.faq-item {
+  margin-bottom: 1.5rem;
+}
 .faq-item h4 {
   font-size: 1.25rem;
   margin-bottom: 0.5rem;
@@ -278,44 +288,6 @@ section h2 {
   justify-content: center;
   font-size: 1.25rem;
   cursor: pointer;
-  transition: background 0.3s ease;
-}
-.back-to-top:hover { background: var(--nav-bg); }
+  transition: background 0.3s ease;```
 
-/* ======================= Footer ======================= */
-footer {
-  background: var(--secondary-bg);
-  padding: 2rem 0;
-}
-.footer-content {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-}
-.footer-links a {
-  margin-right: 1rem;
-  color: var(--text);
-  transition: color 0.3s ease;
-}
-.footer-links a:hover { color: var(--primary); }
-.social-icons img { width: 24px; margin-right: 0.5rem; }
-
-/* ======================= Keyframes & Responsive ======================= */
-@keyframes fadeInDown {
-  from { opacity: 0; transform: translateY(-20px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-@media (max-width: 768px) {
-  .nav-links { display: none; }
-  .hero h1 { font-size: 2rem; }
-  .hero p  { font-size: 1rem; }
-}
-/* Force the Services cards into a horizontal grid */
-#services .service-grid {
-  display: grid !important;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)) !important;
-  gap: 1.5rem !important;
-}
 
