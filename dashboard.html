@@ -9,6 +9,25 @@
   <script defer src="script.js"></script>
 </head>
 <body>
+  <header class="navbar">
+    <div class="logo-container">
+      <a href="index.html">
+        <img src="assets/logo.png" alt="Elite Web Services Logo" class="navbar-logo" />
+      </a>
+      <span class="brand-name">Elite Web Services</span>
+    </div>
+    <nav class="nav-links">
+      <a href="index.html#services">Services</a>
+      <a href="index.html#about">About</a>
+      <a href="case-studies.html">Case Studies</a>
+      <a href="blog.html">Blog</a>
+      <a href="resources.html">Resources</a>
+      <a href="dashboard.html" class="active">Dashboard</a>
+      <a href="index.html#contact">Contact</a>
+      <button id="darkToggle" class="dark-toggle" aria-label="Toggle dark mode">🌙</button>
+    </nav>
+  </header>
+
   <div class="dashboard-container">
     <div class="dashboard-header">
       <h1>Elite Web Services - Monitoring Dashboard</h1>
@@ -43,7 +62,12 @@
       <canvas id="ec2Chart" height="100"></canvas>
     </div>
   </div>
+
+  <footer>
+    <p>&copy; 2025 Elite Web Services. All rights reserved.</p>
+  </footer>
 </body>
 </html>
+
 
 
