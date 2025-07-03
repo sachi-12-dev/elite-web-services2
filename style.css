@@ -312,3 +312,10 @@ footer {
   .hero h1 { font-size: 2rem; }
   .hero p  { font-size: 1rem; }
 }
+/* Force the Services cards into a horizontal grid */
+#services .service-grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)) !important;
+  gap: 1.5rem !important;
+}
+
