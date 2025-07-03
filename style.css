@@ -289,5 +289,61 @@ section h2 {
   font-size: 1.25rem;
   cursor: pointer;
   transition: background 0.3s ease;```
+  /* ===== Navbar Responsive & Toggle ===== */
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.hamburger,
+.hamburger::before,
+.hamburger::after {
+  width: 24px;
+  height: 3px;
+  background: var(--text);
+  display: block;
+  border-radius: 2px;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+.hamburger::before,
+.hamburger::after {
+  content: '';
+  position: absolute;
+}
+.hamburger::before { top: -8px; }
+.hamburger::after  { top:  8px; }
+
+/* Hide menu on mobile by default */
+.nav-menu {
+  display: flex;
+}
+.nav-links li + li {
+  margin-left: 1.5rem;
+}
+@media (max-width: 768px) {
+  .nav-toggle {
+    display: block;
+    color: var(--text);
+  }
+  .nav-menu {
+    display: none;
+    width: 100%;
+    background: var(--nav-bg);
+  }
+  .nav-menu.open {
+    display: block;
+  }
+  .nav-links {
+    flex-direction: column;
+    padding: 1rem 0;
+  }
+  .nav-links li + li {
+    margin-left: 0;
+    margin-top: 1rem;
+  }
+}
+
 
 
