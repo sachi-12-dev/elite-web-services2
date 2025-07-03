@@ -42,7 +42,6 @@ function revealOnScroll() {
   animate(); // Run on load
   window.addEventListener('scroll', animate);
 }
-// ====== MOCK CHART DATA FOR DASHBOARD ======
 window.addEventListener('DOMContentLoaded', () => {
   const costCanvas = document.getElementById('costChart');
   const ec2Canvas = document.getElementById('ec2Chart');
@@ -63,9 +62,6 @@ window.addEventListener('DOMContentLoaded', () => {
       },
       options: {
         responsive: true,
-        plugins: {
-          legend: { display: true }
-        },
         scales: {
           y: { beginAtZero: true }
         }
@@ -86,9 +82,6 @@ window.addEventListener('DOMContentLoaded', () => {
       },
       options: {
         responsive: true,
-        plugins: {
-          legend: { display: false }
-        },
         scales: {
           y: { beginAtZero: true }
         }
@@ -96,4 +89,3 @@ window.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
-
