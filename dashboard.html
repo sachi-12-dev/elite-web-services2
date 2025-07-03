@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MCC Dashboard | Elite Web Services</title>
+  <link rel="stylesheet" href="style.css"/>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script defer src="script.js"></script>
+  <style>
+    .dashboard-container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 60px 20px;
+      text-align: center;
+    }
+    .dashboard-section {
+      margin-bottom: 60px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    th, td {
+      padding: 12px;
+      border: 1px solid #ccc;
+    }
+    th {
+      background-color: #f0f0f0;
+    }
+    button.ec2-btn {
+      padding: 6px 12px;
+      border: none;
+      background: #d4af37;
+      color: black;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo-container">
+      <a href="index.html">
+        <img src="assets/logo.png" alt="Elite Web Services Logo" class="navbar-logo"/>
+      </a>
+      <span class="brand-name">Elite Web Services</span>
+    </div>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="case-studies.html">Case Studies</a>
+      <a href="blog.html">Blog</a>
+      <a href="resources.html">Resources</a>
+      <a href="dashboard.html" class="active">Dashboard</a>
+      <button id="darkToggle" class="dark-toggle" aria-label="Toggle dark mode">🌙</button>
+    </nav>
+  </header>
+
+  <main class="dashboard-container">
+    <h2>MCC-Lite Client Dashboard</h2>
+
+    <div class="dashboard-section">
+      <h3>EC2 Instances</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Instance ID</th>
+            <th>Status</th>
+            <th>Region</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>i-0abc123def456</td>
+            <td>running</td>
+            <td>us-east-1</td>
+            <td><button class="ec2-btn">Stop</button></td>
+          </tr>
+          <tr>
+            <td>i-0xyz789uvw321</td>
+            <td>stopped</td>
+            <td>us-west-2</td>
+            <td><button class="ec2-btn">Start</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="dashboard-section">
+      <h3>Monthly AWS Cost</h3>
+      <canvas id="costChart" width="400" height="200"></canvas>
+    </div>
+
+    <div class="dashboard-section">
+      <h3>Security Findings</h3>
+      <p>3 critical risks detected. Review recommended actions in your AWS Security Hub.</p>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Elite Web Services. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Mock data for chart
+    const ctx = document.getElementById('costChart').getContext('2d');
+    new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['March', 'April', 'May', 'June', 'July'],
+        datasets: [{
+          label: 'Monthly AWS Cost ($)',
+          data: [122.3, 198.4, 175.2, 210.6, 185.0],
+          backgroundColor: '#d4af37'
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: { position: 'top' }
+        },
+        scales: {
+          y: { beginAtZero: true }
+        }
+      }
+    });
+  </script>
+</body>
+</html>
