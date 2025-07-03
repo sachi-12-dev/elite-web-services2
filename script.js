@@ -42,4 +42,58 @@ function revealOnScroll() {
   animate(); // Run on load
   window.addEventListener('scroll', animate);
 }
+// ====== MOCK CHART DATA FOR DASHBOARD ======
+window.addEventListener('DOMContentLoaded', () => {
+  const costCanvas = document.getElementById('costChart');
+  const ec2Canvas = document.getElementById('ec2Chart');
+
+  if (costCanvas) {
+    new Chart(costCanvas.getContext('2d'), {
+      type: 'line',
+      data: {
+        labels: ['Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
+        datasets: [{
+          label: 'Cost ($)',
+          data: [800, 950, 1200, 1100, 1450, 1920],
+          borderColor: '#d4af37',
+          backgroundColor: 'rgba(212, 175, 55, 0.2)',
+          fill: true,
+          tension: 0.4
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: { display: true }
+        },
+        scales: {
+          y: { beginAtZero: true }
+        }
+      }
+    });
+  }
+
+  if (ec2Canvas) {
+    new Chart(ec2Canvas.getContext('2d'), {
+      type: 'bar',
+      data: {
+        labels: ['us-east-1', 'us-west-2', 'eu-central-1'],
+        datasets: [{
+          label: 'Running Instances',
+          data: [12, 9, 6],
+          backgroundColor: '#d4af37'
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: { display: false }
+        },
+        scales: {
+          y: { beginAtZero: true }
+        }
+      }
+    });
+  }
+});
 
