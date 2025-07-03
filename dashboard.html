@@ -28,46 +28,44 @@
     </nav>
   </header>
 
-  <div class="dashboard-container">
-    <div class="dashboard-header">
-      <h1>Elite Web Services - Monitoring Dashboard</h1>
+  <section id="monitoring" class="features reveal">
+    <h2>Monitoring Dashboard</h2>
+    <div class="card-grid">
+      <div class="card">
+        <h3>Total AWS Spend</h3>
+        <p>$1,920</p>
+      </div>
+      <div class="card">
+        <h3>EC2 Instances Running</h3>
+        <p>27</p>
+      </div>
+      <div class="card">
+        <h3>Critical Security Findings</h3>
+        <p>6 issues</p>
+      </div>
+      <div class="card">
+        <h3>Accounts Monitored</h3>
+        <p>12 accounts</p>
+      </div>
     </div>
+  </section>
 
-    <div class="metrics-overview">
-      <div class="metric-tile">
-        <span class="metric-title">Total AWS Spend</span>
-        <span class="metric-value">$1,920</span>
-      </div>
-      <div class="metric-tile">
-        <span class="metric-title">EC2 Instances Running</span>
-        <span class="metric-value">27</span>
-      </div>
-      <div class="metric-tile">
-        <span class="metric-title">Critical Security Findings</span>
-        <span class="metric-value">6</span>
-      </div>
-      <div class="metric-tile">
-        <span class="metric-title">Accounts Monitored</span>
-        <span class="metric-value">12</span>
-      </div>
-    </div>
+  <section class="features reveal">
+    <h2>Monthly AWS Spend</h2>
+    <canvas id="costChart" height="100"></canvas>
+  </section>
 
-    <div class="chart-section">
-      <h2>Monthly AWS Spend</h2>
-      <canvas id="costChart" height="100"></canvas>
-    </div>
-
-    <div class="chart-section">
-      <h2>EC2 Instance Count by Region</h2>
-      <canvas id="ec2Chart" height="100"></canvas>
-    </div>
-  </div>
+  <section class="features reveal">
+    <h2>EC2 Instance Count by Region</h2>
+    <canvas id="ec2Chart" height="100"></canvas>
+  </section>
 
   <footer>
     <p>&copy; 2025 Elite Web Services. All rights reserved.</p>
   </footer>
 </body>
 </html>
+
 
 
 
