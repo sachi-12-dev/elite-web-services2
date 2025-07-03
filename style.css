@@ -220,4 +220,67 @@ footer {
     gap: 1rem;
   }
 }
+/* ================= Hero Section Enhancements ================= */
+.hero {
+  /* swap to a subtle gradient or your hero image */
+  background: linear-gradient(135deg, #0052cc 0%, #3399ff 100%);
+  color: #ffffff;
+  padding: 6rem 2rem;
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-content {
+  max-width: 700px;
+  text-align: center;
+  animation: fadeInDown 1s ease-out both;
+}
+
+/* ================= Button Hover ================= */
+.btn {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* ================= Feature Cards ================= */
+.feature-item {
+  background: var(--background);
+  border-radius: 8px;
+  padding: 2rem 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+}
+.feature-item:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+}
+
+/* ================= Reveal Animations ================= */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ================= Keyframes ================= */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
