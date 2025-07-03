@@ -359,6 +359,90 @@ body.dark .assessment-form select {
   color: #eee;
   border-color: #444;
 }
+/* ————————————————
+   Dashboard-specific styles
+   ———————————————— */
+
+/* Layout */
+.dashboard-wrapper {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 24px;
+  max-width: 1400px;
+  margin: 32px auto;
+}
+.sidebar {
+  background: #111;
+  color: #eee;
+  padding: 20px;
+  position: sticky;
+  top: 72px;  /* match your navbar height */
+  height: calc(100vh - 72px);
+  overflow-y: auto;
+}
+.sidebar h2 {
+  font-size: 1.4rem;
+  color: #d4af37;
+  margin-bottom: 16px;
+}
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+.sidebar ul li a {
+  display: block;
+  padding: 8px 12px;
+  color: #ccc;
+  border-radius: 4px;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.sidebar ul li a:hover,
+.sidebar ul li a.active {
+  background: #d4af37;
+  color: #111;
+}
+
+/* Main panel override */
+.dashboard-wrapper main {
+  background: white;
+  border-radius: 12px;
+  padding: 32px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+}
+body.dark .dashboard-wrapper main {
+  background: #1e1e1e;
+}
+
+/* Chart containers */
+.chart-container {
+  background: white;
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+  margin-top: 16px;
+}
+body.dark .chart-container {
+  background: #2a2a2a;
+}
+.chart-container canvas {
+  max-width: 100% !important;
+  height: auto !important;
+}
+
+/* Ensure your existing .features, .card-grid, .card, etc. continue to apply here */
+
+/* Mobile */
+@media (max-width: 768px) {
+  .dashboard-wrapper {
+    grid-template-columns: 1fr;
+  }
+  .sidebar {
+    display: none;
+  }
+  .dashboard-wrapper main {
+    padding: 20px;
+  }
+}
 
 
 
