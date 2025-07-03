@@ -359,71 +359,33 @@ body.dark .assessment-form select {
   color: #eee;
   border-color: #444;
 }
-.dashboard-container {
-  max-width: 1200px;
+/* MONITORING DASHBOARD CUSTOM STYLES (reuses existing cards + grid) */
+#monitoring h2,
+.features h2 {
+  color: #222;
+}
+
+body.dark #monitoring h2,
+body.dark .features h2 {
+  color: #d4af37;
+}
+
+/* Optional: Style canvas charts for spacing */
+canvas {
+  max-width: 100%;
   margin: 0 auto;
-  padding: 60px 20px;
+  display: block;
+  padding-top: 10px;
 }
 
-.dashboard-header {
+/* Optional: Adjust card size on dashboard */
+#monitoring .card-grid .card {
+  min-width: 250px;
   text-align: center;
-  margin-bottom: 40px;
 }
 
-.dashboard-header h1 {
-  font-size: 2rem;
-  color: #d4af37;
-}
-
-.metrics-overview {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 24px;
-  margin-bottom: 50px;
-}
-
-.metric-tile {
-  background: white;
-  border-radius: 12px;
-  padding: 20px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  align-items: flex-start;
-  border-left: 4px solid #d4af37;
-}
-
-.metric-title {
-  font-size: 0.9rem;
-  color: #777;
-}
-
-.metric-value {
-  font-size: 1.6rem;
-  font-weight: 700;
-}
-
-.chart-section {
-  background: white;
-  padding: 30px;
-  border-radius: 12px;
-  margin-bottom: 40px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-}
-
-.chart-section h2 {
-  margin-bottom: 20px;
-  font-size: 1.2rem;
-  color: #d4af37;
-}
-
-body.dark .metric-tile,
-body.dark .chart-section {
-  background: #1d1d1d;
-  color: #eee;
-}
-
-body.dark .metric-title {
-  color: #aaa;
+@media (max-width: 600px) {
+  canvas {
+    height: auto;
+  }
 }
