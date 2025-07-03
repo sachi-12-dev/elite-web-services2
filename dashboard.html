@@ -10,10 +10,11 @@
 </head>
 <body>
 
+  <!-- Top Navbar -->
   <header class="navbar">
     <div class="logo-container">
       <a href="index.html">
-        <img src="assets/logo.png" alt="EWSC Logo" class="navbar-logo" />
+        <img src="assets/logo.png" alt="Elite Web Services Logo" class="navbar-logo" />
       </a>
       <span class="brand-name">Elite Web Services Control</span>
     </div>
@@ -30,10 +31,11 @@
   </header>
 
   <div class="dashboard-wrapper">
+    <!-- Sidebar Navigation -->
     <aside class="sidebar">
       <h2>EWSC Navigation</h2>
       <ul>
-        <li><a href="#overview">Overview</a></li>
+        <li><a href="#overview" class="active">Overview</a></li>
         <li><a href="#scorecard">Scorecard</a></li>
         <li><a href="#spend">AWS Spend</a></li>
         <li><a href="#ec2">EC2 Insights</a></li>
@@ -43,7 +45,9 @@
       </ul>
     </aside>
 
+    <!-- Main Dashboard Content -->
     <main>
+      <!-- Monitoring Overview -->
       <section id="overview" class="features reveal">
         <h2>Monitoring Overview</h2>
         <div class="card-grid">
@@ -54,6 +58,7 @@
         </div>
       </section>
 
+      <!-- Mission Scorecard -->
       <section id="scorecard" class="features reveal">
         <h2>EWSC Score</h2>
         <div class="card-grid">
@@ -64,16 +69,23 @@
         </div>
       </section>
 
+      <!-- AWS Spend Chart -->
       <section id="spend" class="features reveal">
         <h2>Monthly AWS Spend</h2>
-        <canvas id="costChart" height="100"></canvas>
+        <div class="chart-container">
+          <canvas id="costChart"></canvas>
+        </div>
       </section>
 
+      <!-- EC2 by Region Chart -->
       <section id="ec2" class="features reveal">
         <h2>EC2 by Region</h2>
-        <canvas id="ec2Chart" height="100"></canvas>
+        <div class="chart-container">
+          <canvas id="ec2Chart"></canvas>
+        </div>
       </section>
 
+      <!-- Security Findings Breakdown -->
       <section id="security" class="features reveal">
         <h2>Security Findings Breakdown</h2>
         <div class="card-grid">
@@ -83,15 +95,17 @@
         </div>
       </section>
 
+      <!-- Optimization Recommendations -->
       <section id="recommendations" class="features reveal">
         <h2>Optimization Recommendations</h2>
         <div class="card-grid">
           <div class="card"><h3>Rightsize EC2</h3><p>i-0abc… underutilized – suggest t3.micro</p></div>
-          <div class="card"><h3>S3 Lifecycle</h3><p>Archive infrequently accessed data to Glacier</p></div>
+          <div class="card"><h3>S3 Lifecycle</h3><p>Archive infrequently accessed to Glacier</p></div>
           <div class="card"><h3>Idle RDS</h3><p>Instance idle 30+ days – consider shutdown</p></div>
         </div>
       </section>
 
+      <!-- Latest Alerts & Activities -->
       <section id="alerts" class="features reveal">
         <h2>Latest Alerts & Activities</h2>
         <div class="card-grid">
@@ -103,11 +117,13 @@
     </main>
   </div>
 
+  <!-- Footer -->
   <footer>
     <p>&copy; 2025 Elite Web Services. All rights reserved.</p>
   </footer>
 
 </body>
 </html>
+
 
 
