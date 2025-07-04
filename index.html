@@ -74,7 +74,7 @@
           <li><a href="dashboard.html">Dashboard</a></li>
           <li><a href="#consultation">Consultation</a></li>
           <li>
-            <button class="dark-toggle" aria-label="Toggle Dark Mode" onclick="document.body.classList.toggle('dark')">🌓</button>
+            <button class="dark-toggle" aria-label="Toggle Dark Mode">🌓</button>
           </li>
         </ul>
       </nav>
@@ -100,19 +100,19 @@
       <div class="container">
         <h2>Mission Control Features</h2>
         <div class="feature-grid">
-          <div class="card feature-item">
+          <div class="card feature-item" data-title="Multi-Account Visibility" data-details="Consolidate all AWS accounts into a unified dashboard for full visibility, with filters by account, region, and resource type.">
             <h3>Multi-Account Visibility</h3>
             <p>See all AWS accounts and resources in a single pane.</p>
           </div>
-          <div class="card feature-item">
+          <div class="card feature-item" data-title="Cost Optimization" data-details="Analyze spend trends, receive automated recommendations, and implement cost-saving measures across your AWS environment.">
             <h3>Cost Optimization</h3>
             <p>Identify waste and reduce spend across your AWS footprint.</p>
           </div>
-          <div class="card feature-item">
+          <div class="card feature-item" data-title="Security Monitoring" data-details="Continuously scan for security vulnerabilities and compliance issues, with real-time alerts and remediation guidance.">
             <h3>Security Monitoring</h3>
             <p>Continuously scan for vulnerabilities and compliance issues.</p>
           </div>
-          <div class="card feature-item">
+          <div class="card feature-item" data-title="Automation" data-details="Trigger custom workflows, automate routine tasks, and respond to events with Rule-based actions directly from the dashboard.">
             <h3>Automation</h3>
             <p>Trigger actions and alerts based on custom rules.</p>
           </div>
@@ -125,19 +125,19 @@
       <div class="container">
         <h2>Our Services</h2>
         <div class="service-grid">
-          <div class="card service-item">
+          <div class="card service-item" data-title="Managed Monitoring" data-details="24/7 expert monitoring of AWS resources, proactive alerting, and performance optimization.">
             <h3>Managed Monitoring</h3>
             <p>24/7 monitoring of AWS resources by our expert team.</p>
           </div>
-          <div class="card service-item">
+          <div class="card service-item" data-title="Cloud Architecture" data-details="Design and deploy scalable, secure, and cost-effective AWS architectures tailored to your needs.">
             <h3>Cloud Architecture</h3>
             <p>Design and deploy scalable, secure AWS solutions.</p>
           </div>
-          <div class="card service-item">
+          <div class="card service-item" data-title="Cost Audits" data-details="Comprehensive financial reviews to uncover unused resources, idle capacity, and optimization opportunities.">
             <h3>Cost Audits</h3>
             <p>Comprehensive financial reviews to reduce spend.</p>
           </div>
-          <div class="card service-item">
+          <div class="card service-item" data-title="Security Assessments" data-details="In-depth security assessments to identify vulnerabilities and enforce best practices across your AWS environments.">
             <h3>Security Assessments</h3>
             <p>Identify vulnerabilities and enforce best practices.</p>
           </div>
@@ -164,6 +164,15 @@
 
   </main>
 
+  <!-- Info Modal -->
+  <div id="infoModal" class="modal" aria-hidden="true">
+    <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" aria-label="Close">&times;</button>
+      <h3 id="modalTitle"></h3>
+      <p id="modalDesc"></p>
+    </div>
+  </div>
+
   <!-- Footer -->
   <footer>
     <div class="container footer-content">
@@ -176,3 +185,4 @@
   <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
 </body>
 </html>
+
