@@ -499,6 +499,22 @@ section {
               color 0.4s ease,
               box-shadow 0.4s ease;
 }
+/* Hero CTA button overrides */
+.hero-cta .btn-primary {
+  background: var(--primary) !important;
+  color: #fff !important;
+  border: none;
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+}
+
+/* Ensure secondary also shows in dark */
+.hero-cta .btn-secondary {
+  background: transparent !important;
+  border: 2px solid #fff !important;
+  color: #fff !important;
+}
 
 
 
