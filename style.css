@@ -525,6 +525,22 @@ section {
   border: 2px solid #fff !important;
   color: #fff !important;
 }
+/* ────── FORCE PRIMARY BUTTON STYLING ────── */
+.btn-primary, 
+.hero-cta .btn-primary {
+  background: var(--primary) !important;
+  color: #ffffff !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* Invert hover for visibility */
+.btn-primary:hover {
+  opacity: 0.9 !important;
+  transform: translateY(-2px) !important;
+}
+
+
 
 
 
