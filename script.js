@@ -68,6 +68,47 @@ document.addEventListener('DOMContentLoaded', () => {
     toggle.classList.toggle('open');
   });
 });
+document.addEventListener('DOMContentLoaded', () => {
+  // 1) Mobile nav toggle
+  const navToggle = document.querySelector('.nav-toggle');
+  const navMenu   = document.querySelector('.nav-menu');
+  if (navToggle && navMenu) {
+    navToggle.addEventListener('click', () => {
+      navMenu.classList.toggle('open');
+    });
+  }
+
+  // 2) Dark-mode toggle with persistence
+  const darkToggle = document.querySelector('.dark-toggle');
+  const storedTheme = localStorage.getItem('theme');
+  if (storedTheme === 'dark') {
+    document.body.classList.add('dark');
+  }
+  if (darkToggle) {
+    darkToggle.addEventListener('click', () => {
+      const isDark = document.body.classList.toggle('dark');
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    });
+  }
+
+  // 3) Smooth scrolling for internal links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const target = this.getAttribute('href');
+      if (target.length > 1 && document.querySelector(target)) {
+        e.preventDefault();
+        document.querySelector(target).scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+        // close mobile menu after click
+        if (navMenu && navMenu.classList.contains('open')) {
+          navMenu.classList.remove('open');
+        }
+      }
+    });
+  });
+});
 
 
 
