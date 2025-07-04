@@ -128,15 +128,17 @@ button { font-family: inherit; cursor: pointer; }
   font-weight: 500;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-.btn-primary {
-  background: var(--primary);
-  color: #ffffff;
-  border: none;
-}
+/* Secondary Buttons: visible in light, white in dark */
 .btn-secondary {
   background: none;
-  border: 2px solid #ffffff;
+  border: 2px solid var(--primary);
+  color: var(--primary);
+}
+body.dark .btn-secondary {
+  border-color: #ffffff;
   color: #ffffff;
+}
+
 }
 .btn:hover {
   transform: translateY(-3px);
