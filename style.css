@@ -374,3 +374,117 @@ body.dark .btn-secondary {
   opacity: 1;
   transform: translateY(0);
 }
+/* ─── Navbar Actions ───────────────────────────────────────────────────────── */
+.nav-actions-wrap {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Icon buttons (search & mobile toggle) */
+.icon-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Search button styling */
+.search-btn svg {
+  stroke: var(--nav-icon-color, #333);
+  transition: stroke 0.2s;
+}
+.search-btn:hover svg {
+  stroke: var(--nav-icon-hover-color, #000);
+}
+
+/* ─── Dark-Mode Toggle ─────────────────────────────────────────────────────── */
+.dark-toggle {
+  position: relative;
+}
+.dark-toggle-checkbox {
+  position: absolute;
+  width: 0;
+  height: 0;
+  opacity: 0;
+}
+.dark-toggle-label {
+  display: inline-block;
+  width: 40px;
+  height: 20px;
+  background: var(--toggle-bg, #ccc);
+  border-radius: 10px;
+  cursor: pointer;
+  position: relative;
+  transition: background 0.3s;
+}
+.dark-toggle-label .toggle-switch {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 16px;
+  height: 16px;
+  background: #fff;
+  border-radius: 50%;
+  transition: transform 0.3s;
+}
+.dark-toggle-checkbox:checked + .dark-toggle-label {
+  background: var(--toggle-bg-active, #4a4a4a);
+}
+.dark-toggle-checkbox:checked + .dark-toggle-label .toggle-switch {
+  transform: translateX(20px);
+}
+
+/* ─── Mobile Nav ───────────────────────────────────────────────────────────── */
+.nav-menu {
+  display: flex;
+  align-items: center;
+}
+.nav-toggle {
+  display: none;
+}
+
+/* Hamburger styling (if not already defined) */
+.hamburger,
+.hamburger::before,
+.hamburger::after {
+  content: '';
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--nav-icon-color, #333);
+  border-radius: 1px;
+  transition: transform 0.3s;
+}
+.hamburger::before {
+  transform: translateY(-6px);
+}
+.hamburger::after {
+  transform: translateY(4px);
+}
+
+/* Mobile breakpoint */
+@media (max-width: 768px) {
+  .nav-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: var(--nav-bg, #fff);
+    flex-direction: column;
+    width: 200px;
+    padding: 1rem;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+  .nav-menu.open {
+    transform: translateX(0);
+  }
+  .nav-toggle {
+    display: flex;
+  }
+}
