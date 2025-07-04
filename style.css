@@ -384,3 +384,87 @@ body.dark .btn-secondary {
     margin-top: 1rem;
   }
 }
+/* ================= Scroll Progress Bar ================= */
+#scrollProgress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 4px;
+  background: var(--primary);
+  z-index: 1500;
+  transition: width 0.25s ease;
+}
+
+/* ================= Modal Overlay & Content ================= */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 2000;
+}
+.modal.open {
+  display: flex;
+}
+.modal-content {
+  background: var(--background);
+  color: var(--text);
+  padding: 2rem;
+  border-radius: 0.5rem;
+  max-width: 90%;
+  width: 360px;
+  box-shadow: 0 4px 16px var(--card-shadow);
+  position: relative;
+  animation: slideInUp 0.4s ease-out;
+}
+.modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--text);
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+.modal-close:hover {
+  color: var(--primary);
+}
+
+/* ================= Back-to-Top Button Adjustments ================= */
+#backToTop {
+  bottom: 1.5rem;
+  right: 1.5rem;
+  width: 3rem;
+  height: 3rem;
+  font-size: 1.25rem;
+  background: var(--primary);
+  color: #fff;
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  opacity: 0.8;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+#backToTop:hover {
+  opacity: 1;
+  transform: translateY(-3px);
+}
+
+/* ================= Active Section Link Border ================= */
+.nav-links a.active {
+  border-bottom: 2px solid var(--primary);
+  padding-bottom: 0.25rem;
+}
+
+/* ================= Animations ================= */
+@keyframes slideInUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
