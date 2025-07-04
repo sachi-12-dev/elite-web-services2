@@ -1,52 +1,56 @@
 // script.js
 
-;(function(){
-  // 1) Mobile nav toggle
+document.addEventListener('DOMContentLoaded', function() {
+  // ===== Dark Mode Toggle with Persistence =====
+  var darkToggles = document.querySelectorAll('.dark-toggle');
+  var currentTheme = localStorage.getItem('ews-theme');
+  if (currentTheme === 'dark') {
+    document.body.classList.add('dark');
+  }
+  for (var i = 0; i < darkToggles.length; i++) {
+    darkToggles[i].addEventListener('click', function() {
+      var isDark = document.body.classList.toggle('dark');
+      try {
+        localStorage.setItem('ews-theme', isDark ? 'dark' : 'light');
+      } catch (e) {
+        console.warn('Could not save theme preference:', e);
+      }
+    });
+  }
+
+  // ===== Mobile Menu Toggle =====
   var navToggle = document.querySelector('.nav-toggle');
   var navMenu   = document.querySelector('.nav-menu');
   if (navToggle && navMenu) {
-    navToggle.addEventListener('click', function(){
+    navToggle.addEventListener('click', function() {
       navMenu.classList.toggle('open');
       navToggle.classList.toggle('open');
     });
   }
 
-  // 2) Dark-mode toggle with persistence
-  var darkBtns = document.querySelectorAll('.dark-toggle');
-  var theme    = localStorage.getItem('ews-theme');
-  if (theme === 'dark') {
-    document.body.classList.add('dark');
-  }
-  for (var i = 0; i < darkBtns.length; i++) {
-    darkBtns[i].addEventListener('click', function(){
-      var isDark = document.body.classList.toggle('dark');
-      try { localStorage.setItem('ews-theme', isDark ? 'dark' : 'light'); }
-      catch(e){}
-    });
-  }
-
-  // 3) Simple reveal-on-scroll (no observer)
-  var reveals = document.querySelectorAll('.reveal');
-  function revealAll(){
-    for (var j=0; j<reveals.length; j++) {
-      var r = reveals[j];
-      var rect = r.getBoundingClientRect();
-      if (rect.top < window.innerHeight * 0.8) {
-        r.classList.add('active');
+  // ===== Reveal On Scroll =====
+  function revealOnScroll() {
+    var reveals = document.querySelectorAll('.reveal');
+    var windowHeight = window.innerHeight;
+    for (var j = 0; j < reveals.length; j++) {
+      var element = reveals[j];
+      var position = element.getBoundingClientRect().top;
+      if (position < windowHeight * 0.8) {
+        element.classList.add('active');
       }
     }
   }
-  window.addEventListener('scroll', revealAll);
-  revealAll(); // run on load
+  window.addEventListener('scroll', revealOnScroll);
+  revealOnScroll();
 
-  // 4) Smooth scroll for in-page links
-  var links = document.querySelectorAll('a[href^="#"]');
-  for (var k=0; k<links.length; k++){
-    links[k].addEventListener('click', function(e){
-      var tgt = this.getAttribute('href');
-      if (tgt.length > 1 && document.querySelector(tgt)) {
+  // ===== Smooth Scrolling & Close Mobile Menu =====
+  var anchors = document.querySelectorAll('a[href^="#"]');
+  for (var k = 0; k < anchors.length; k++) {
+    anchors[k].addEventListener('click', function(e) {
+      var targetID = this.getAttribute('href');
+      if (targetID.length > 1 && document.querySelector(targetID)) {
         e.preventDefault();
-        document.querySelector(tgt).scrollIntoView({ behavior:'smooth' });
+        document.querySelector(targetID).scrollIntoView({ behavior: 'smooth' });
         if (navMenu && navMenu.classList.contains('open')) {
           navMenu.classList.remove('open');
           navToggle.classList.remove('open');
@@ -55,62 +59,61 @@
     });
   }
 
-  // 5) Back-to-top button
-  var btn = document.createElement('button');
-  btn.id = 'backToTop'; btn.className = 'back-to-top'; btn.textContent = '↑';
-  document.body.appendChild(btn);
-  btn.addEventListener('click', function(){ window.scrollTo({top:0, behavior:'smooth'}); });
-  window.addEventListener('scroll', function(){
-    btn.style.display = window.scrollY > window.innerHeight ? 'flex' : 'none';
+  // ===== Back-to-Top Button =====
+  var backBtn = document.createElement('button');
+  backBtn.id = 'backToTop';
+  backBtn.className = 'back-to-top';
+  backBtn.textContent = '↑';
+  document.body.appendChild(backBtn);
+  backBtn.addEventListener('click', function() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+  window.addEventListener('scroll', function() {
+    backBtn.style.display = (window.scrollY > window.innerHeight) ? 'flex' : 'none';
   });
 
-  // 6) Calendly fade-in
+  // ===== Calendly Fade-In =====
   var cw = document.querySelector('.calendly-inline-widget');
   if (cw) {
-    cw.style.opacity = '0';
-    var ifr = cw.querySelector('iframe');
-    if (ifr) ifr.addEventListener('load', function(){
-      cw.style.transition = 'opacity 0.6s ease-in';
-      cw.style.opacity = '1';
-    });
+    cw.style.opacity = 0;
+    var iframe = cw.querySelector('iframe');
+    if (iframe) {
+      iframe.addEventListener('load', function() {
+        cw.style.transition = 'opacity 0.6s ease-in';
+        cw.style.opacity = 1;
+      });
+    }
   }
 
-  // 7) Hero intro
-  var hero = document.querySelector('.hero-content');
-  if (hero) {
-    hero.style.opacity = '0';
-    setTimeout(function(){
-      hero.style.transition = 'opacity 1s ease-out';
-      hero.style.opacity = '1';
-    }, 100);
-  }
-})();
-// Card info modal
-(function(){
-  var modal      = document.getElementById('infoModal');
-  var closeBtn   = modal.querySelector('.modal-close');
-  var titleEl    = modal.querySelector('#modalTitle');
-  var descEl     = modal.querySelector('#modalDesc');
-  // Open modal on card click
+  // ===== Modal Popup for Cards =====
+  var modal = document.getElementById('infoModal');
+  var closeBtn = modal ? modal.querySelector('.modal-close') : null;
+  var titleEl = modal ? modal.querySelector('#modalTitle') : null;
+  var descEl = modal ? modal.querySelector('#modalDesc') : null;
+
   var cards = document.querySelectorAll('.card[data-title]');
-  for (var i=0; i<cards.length; i++){
-    cards[i].addEventListener('click', function(){
+  for (var m = 0; m < cards.length; m++) {
+    cards[m].addEventListener('click', function() {
+      if (!modal) return;
       titleEl.textContent = this.getAttribute('data-title');
-      descEl.textContent  = this.getAttribute('data-details');
+      descEl.textContent = this.getAttribute('data-details');
       modal.classList.add('open');
-      modal.setAttribute('aria-hidden','false');
+      modal.setAttribute('aria-hidden', 'false');
     });
   }
-  // Close modal
-  closeBtn.addEventListener('click', function(){
-    modal.classList.remove('open');
-    modal.setAttribute('aria-hidden','true');
-  });
-  // Also close on overlay click
-  modal.addEventListener('click', function(e){
-    if (e.target === modal) {
+  if (closeBtn) {
+    closeBtn.addEventListener('click', function() {
       modal.classList.remove('open');
-      modal.setAttribute('aria-hidden','true');
-    }
-  });
-})();
+      modal.setAttribute('aria-hidden', 'true');
+    });
+  }
+  if (modal) {
+    modal.addEventListener('click', function(e) {
+      if (e.target === modal) {
+        modal.classList.remove('open');
+        modal.setAttribute('aria-hidden', 'true');
+      }
+    });
+  }
+});
+
