@@ -121,6 +121,7 @@ button { font-family: inherit; cursor: pointer; }
 }
 
 /* ======================= Buttons ======================= */
+/* ======================= Buttons ======================= */
 .btn {
   display: inline-block;
   padding: 0.75rem 1.5rem;
@@ -128,6 +129,7 @@ button { font-family: inherit; cursor: pointer; }
   font-weight: 500;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
 /* Secondary Buttons: visible in light, white in dark */
 .btn-secondary {
   background: none;
@@ -139,11 +141,19 @@ body.dark .btn-secondary {
   color: #ffffff;
 }
 
+/* ===== Primary Buttons ===== */
+.btn-primary {
+  background: var(--primary);
+  color: #ffffff;
+  border: none;
 }
+
+/* Hover effect (apply to both) */
 .btn:hover {
   transform: translateY(-3px);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
+
 
 /* ======================= Reveal Animation ======================= */
 .reveal {
