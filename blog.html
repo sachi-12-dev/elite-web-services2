@@ -1,3 +1,4 @@
+<!-- blog.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,24 +9,39 @@
   <script defer src="script.js"></script>
 </head>
 <body>
-  <!-- Navbar -->
+  <!-- Updated Navbar with enhanced features -->
   <header class="navbar" role="navigation" aria-label="Main Navigation">
     <div class="container navbar-content">
       <a href="index.html" class="logo-container">
         <img src="assets/logo.png" alt="Elite Web Services Logo" class="navbar-logo">
         <span class="brand-name">Elite Web Services</span>
       </a>
-      <button class="nav-toggle" aria-label="Toggle menu"><span class="hamburger"></span></button>
-      <nav class="nav-menu">
-        <ul class="nav-links">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="blog.html" class="active">Blog</a></li>
-          <li><a href="resources.html">Resources</a></li>
-          <li><a href="case-studies.html">Case Studies</a></li>
-          <li><a href="dashboard.html">Dashboard</a></li>
-          <li><button class="dark-toggle" aria-label="Toggle Dark Mode">🌓</button></li>
-        </ul>
-      </nav>
+      <div class="nav-actions-wrap">
+        <nav class="nav-menu">
+          <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="blog.html" class="active">Blog</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="case-studies.html">Case Studies</a></li>
+            <li><a href="dashboard.html">Dashboard</a></li>
+          </ul>
+        </nav>
+        <button class="icon-btn search-btn" aria-label="Search">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </button>
+        <div class="dark-toggle">
+          <input type="checkbox" id="dark-mode-toggle" class="dark-toggle-checkbox" />
+          <label for="dark-mode-toggle" class="dark-toggle-label">
+            <span class="toggle-switch"></span>
+          </label>
+        </div>
+        <button class="icon-btn nav-toggle" aria-label="Toggle menu">
+          <span class="hamburger"></span>
+        </button>
+      </div>
     </div>
   </header>
 
@@ -33,30 +49,45 @@
     <section class="blog-list reveal">
       <h2>Latest Articles</h2>
       <div class="card-grid">
-        <!-- Example post; duplicate .card for each blog entry -->
         <article class="card" data-title="Zero Trust in Healthcare Cloud" data-details="Learn how to implement zero-trust models and maintain HIPAA/GDPR compliance on AWS environments with continuous monitoring and automated response workflows.">
+          <img src="assets/blog-zero-trust.jpg" alt="Zero Trust in Healthcare" class="card-img" />
           <h3>Zero Trust in Healthcare Cloud</h3>
-          <p>Learn how to implement zero-trust models and maintain HIPAA/GDPR compliance on AWS.</p>
-          <button class="btn btn-secondary info-btn">Read More →</button>
+          <p>Implement zero-trust models and maintain HIPAA/GDPR compliance on AWS with automated monitoring.</p>
+          <a href="blog/zero-trust-healthcare.html" class="btn btn-secondary">Read More →</a>
         </article>
+
         <article class="card" data-title="Scaling eCommerce for Black Friday" data-details="Discover how we architected a scalable, fault-tolerant AWS solution that handled 10× traffic surge with zero downtime using auto-scaling, caching, and rate-limiting strategies.">
+          <img src="assets/blog-black-friday.jpg" alt="Scaling eCommerce" class="card-img" />
           <h3>Scaling eCommerce for Black Friday</h3>
-          <p>How we helped a retailer handle 10× traffic with zero downtime.</p>
-          <button class="btn btn-secondary info-btn">Read More →</button>
+          <p>Architected an AWS solution to handle 10× traffic surge with zero downtime.</p>
+          <a href="blog/scaling-ecommerce.html" class="btn btn-secondary">Read More →</a>
         </article>
-        <!-- ...more posts -->
+
+        <article class="card" data-title="Cost Optimization Best Practices" data-details="A comprehensive walkthrough on identifying and eliminating idle AWS resources, rightsizing instances, and using savings plans to shave 30% off your monthly bill.">
+          <img src="assets/blog-cost-optimization.jpg" alt="Cost Optimization" class="card-img" />
+          <h3>Cost Optimization Best Practices</h3>
+          <p>Shave 30% off your AWS bill by eliminating waste and rightsizing resources.</p>
+          <a href="blog/cost-optimization.html" class="btn btn-secondary">Read More →</a>
+        </article>
+
+        <article class="card" data-title="Automating Security Alerts with Lambda" data-details="Learn how to wire AWS Config, CloudWatch, and Lambda together to auto-remediate common security misconfigurations within minutes of detection.">
+          <img src="assets/blog-security-automation.jpg" alt="Security Automation" class="card-img" />
+          <h3>Automating Security Alerts with Lambda</h3>
+          <p>Auto-remediate security misconfigurations within minutes of detection.</p>
+          <a href="blog/security-automation.html" class="btn btn-secondary">Read More →</a>
+        </article>
+      </div>
+
+      <!-- Simple Pagination -->
+      <div class="pagination">
+        <a href="#" class="prev">&laquo; Newer</a>
+        <a href="#" class="page active">1</a>
+        <a href="#" class="page">2</a>
+        <a href="#" class="page">3</a>
+        <a href="#" class="next">Older &raquo;</a>
       </div>
     </section>
   </main>
-
-  <!-- Info Modal -->
-  <div id="infoModal" class="modal" aria-hidden="true">
-    <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-      <button class="modal-close" aria-label="Close">&times;</button>
-      <h3 id="modalTitle"></h3>
-      <p id="modalDesc"></p>
-    </div>
-  </div>
 
   <footer>
     <div class="container footer-content">
