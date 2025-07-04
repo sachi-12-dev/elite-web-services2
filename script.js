@@ -116,4 +116,27 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 });
+// ===== Blog Modal Close Logic =====
+;(function(){
+  var modal    = document.getElementById('infoModal');
+  var closeBtn = modal ? modal.querySelector('.modal-close') : null;
+
+  // If someone clicks the × button
+  if (closeBtn) {
+    closeBtn.addEventListener('click', function(){
+      modal.classList.remove('open');
+      modal.setAttribute('aria-hidden', 'true');
+    });
+  }
+
+  // If someone clicks outside the modal content (on the overlay)
+  if (modal) {
+    modal.addEventListener('click', function(e){
+      if (e.target === modal) {
+        modal.classList.remove('open');
+        modal.setAttribute('aria-hidden', 'true');
+      }
+    });
+  }
+})();
 
