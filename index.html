@@ -6,63 +6,18 @@
   <title>Elite Web Services | AWS Cloud Solutions</title>
   <link rel="stylesheet" href="style.css">
   <meta name="description" content="Elite Web Services delivers centralized AWS visibility, control, and optimization via our MCC-Lite dashboard.">
-  <!-- Modal Styles -->
-  <style>
-    /* Modal Overlay */
-    .modal {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.6);
-      align-items: center;
-      justify-content: center;
-      z-index: 2000;
-    }
-    .modal.open {
-      display: flex;
-    }
-    /* Modal Content */
-    .modal-content {
-      background: #ffffff;
-      padding: 2rem;
-      border-radius: 8px;
-      max-width: 600px;
-      width: 90%;
-      position: relative;
-      animation: fadeInScale 0.3s ease-out;
-    }
-    .modal-close {
-      position: absolute;
-      top: 1rem;
-      right: 1rem;
-      font-size: 1.5rem;
-      background: none;
-      border: none;
-      cursor: pointer;
-      color: var(--text);
-    }
-    @keyframes fadeInScale {
-      from { opacity: 0; transform: scale(0.9); }
-      to { opacity: 1; transform: scale(1); }
-    }
-  </style>
 </head>
 <body>
   <!-- Navbar -->
   <header class="navbar" role="navigation" aria-label="Main Navigation">
-    <div class="container navbar-content">
+    <div class="container">
       <a href="index.html" class="logo-container">
         <img src="assets/logo.png" alt="Elite Web Services Logo" class="navbar-logo">
         <span class="brand-name">Elite Web Services</span>
       </a>
-      <!-- Mobile Nav Toggle -->
       <button class="nav-toggle" aria-label="Toggle menu">
         <span class="hamburger"></span>
       </button>
-      <!-- Navigation Menu -->
       <nav class="nav-menu">
         <ul class="nav-links">
           <li><a href="index.html" class="active">Home</a></li>
@@ -73,25 +28,22 @@
           <li><a href="resources.html">Resources</a></li>
           <li><a href="dashboard.html">Dashboard</a></li>
           <li><a href="#consultation">Consultation</a></li>
-          <li>
-            <button class="dark-toggle" aria-label="Toggle Dark Mode">🌓</button>
-          </li>
+          <li><button class="dark-toggle" aria-label="Toggle Dark Mode">🌓</button></li>
         </ul>
       </nav>
-      <!-- /nav-links -->
     </div>
   </header>
 
   <main>
     <!-- Hero Section -->
     <section id="hero" class="hero reveal">
-      <div class="container hero-content">
+      <div class="container">
         <h1>Centralized AWS Visibility &amp; Control</h1>
         <p>Experience unified monitoring, cost optimization, security scanning, and automation in one dashboard.</p>
         <div class="hero-cta">
-  <a href="#features" class="btn btn-primary">Learn More</a>
-  <a href="dashboard.html" class="btn btn-secondary">Sign In</a>
-</div>
+          <a href="#features" class="btn btn-primary">Learn More</a>
+          <a href="dashboard.html" class="btn btn-secondary">Sign In</a>
+        </div>
       </div>
     </section>
 
@@ -100,21 +52,21 @@
       <div class="container">
         <h2>Mission Control Features</h2>
         <div class="feature-grid">
-          <div class="card feature-item" data-title="Multi-Account Visibility" data-details="Consolidate all AWS accounts into a unified dashboard for full visibility, with filters by account, region, and resource type.">
-            <h3>Multi-Account Visibility</h3>
-            <p>See all AWS accounts and resources in a single pane.</p>
+          <div class="card feature-item" tabindex="0" aria-labelledby="feature1-title" aria-describedby="feature1-desc">
+            <h3 id="feature1-title">Multi-Account Visibility</h3>
+            <p id="feature1-desc">See all AWS accounts and resources in a single pane.</p>
           </div>
-          <div class="card feature-item" data-title="Cost Optimization" data-details="Analyze spend trends, receive automated recommendations, and implement cost-saving measures across your AWS environment.">
-            <h3>Cost Optimization</h3>
-            <p>Identify waste and reduce spend across your AWS footprint.</p>
+          <div class="card feature-item" tabindex="0" aria-labelledby="feature2-title" aria-describedby="feature2-desc">
+            <h3 id="feature2-title">Cost Optimization</h3>
+            <p id="feature2-desc">Identify waste and reduce spend across your AWS footprint.</p>
           </div>
-          <div class="card feature-item" data-title="Security Monitoring" data-details="Continuously scan for security vulnerabilities and compliance issues, with real-time alerts and remediation guidance.">
-            <h3>Security Monitoring</h3>
-            <p>Continuously scan for vulnerabilities and compliance issues.</p>
+          <div class="card feature-item" tabindex="0" aria-labelledby="feature3-title" aria-describedby="feature3-desc">
+            <h3 id="feature3-title">Security Monitoring</h3>
+            <p id="feature3-desc">Continuously scan for vulnerabilities and compliance issues.</p>
           </div>
-          <div class="card feature-item" data-title="Automation" data-details="Trigger custom workflows, automate routine tasks, and respond to events with Rule-based actions directly from the dashboard.">
-            <h3>Automation</h3>
-            <p>Trigger actions and alerts based on custom rules.</p>
+          <div class="card feature-item" tabindex="0" aria-labelledby="feature4-title" aria-describedby="feature4-desc">
+            <h3 id="feature4-title">Automation</h3>
+            <p id="feature4-desc">Trigger actions and alerts based on custom rules.</p>
           </div>
         </div>
       </div>
@@ -125,19 +77,19 @@
       <div class="container">
         <h2>Our Services</h2>
         <div class="service-grid">
-          <div class="card service-item" data-title="Managed Monitoring" data-details="24/7 expert monitoring of AWS resources, proactive alerting, and performance optimization.">
+          <div class="card service-item" tabindex="0">
             <h3>Managed Monitoring</h3>
             <p>24/7 monitoring of AWS resources by our expert team.</p>
           </div>
-          <div class="card service-item" data-title="Cloud Architecture" data-details="Design and deploy scalable, secure, and cost-effective AWS architectures tailored to your needs.">
+          <div class="card service-item" tabindex="0">
             <h3>Cloud Architecture</h3>
             <p>Design and deploy scalable, secure AWS solutions.</p>
           </div>
-          <div class="card service-item" data-title="Cost Audits" data-details="Comprehensive financial reviews to uncover unused resources, idle capacity, and optimization opportunities.">
+          <div class="card service-item" tabindex="0">
             <h3>Cost Audits</h3>
             <p>Comprehensive financial reviews to reduce spend.</p>
           </div>
-          <div class="card service-item" data-title="Security Assessments" data-details="In-depth security assessments to identify vulnerabilities and enforce best practices across your AWS environments.">
+          <div class="card service-item" tabindex="0">
             <h3>Security Assessments</h3>
             <p>Identify vulnerabilities and enforce best practices.</p>
           </div>
@@ -161,7 +113,6 @@
         <p>Elite Web Services is your AWS partner for scalable, secure, and cost-effective cloud management solutions.</p>
       </div>
     </section>
-
   </main>
 
   <!-- Info Modal -->
@@ -175,14 +126,13 @@
 
   <!-- Footer -->
   <footer>
-    <div class="container footer-content">
+    <div class="container">
       <p>&copy; 2025 Elite Web Services. All rights reserved.</p>
     </div>
   </footer>
 
-  <!-- External Scripts -->
+  <!-- Scripts -->
   <script src="script.js" defer></script>
   <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
 </body>
 </html>
-
