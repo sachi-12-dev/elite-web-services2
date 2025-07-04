@@ -1,71 +1,45 @@
-// ====== DARK MODE PERSISTENCE ======
-const toggleButton = document.getElementById('darkToggle');
+// script.js
 
-// Load theme preference on page load
-window.addEventListener('DOMContentLoaded', () => {
-  const savedTheme = localStorage.getItem('theme');
-  if (savedTheme === 'dark') {
+document.addEventListener('DOMContentLoaded', () => {
+  // 1) Mobile nav toggle
+  const navToggle = document.querySelector('.nav-toggle');
+  const navMenu   = document.querySelector('.nav-menu');
+  if (navToggle && navMenu) {
+    navToggle.addEventListener('click', () => {
+      navMenu.classList.toggle('open');
+      navToggle.classList.toggle('open');
+    });
+  }
+
+  // 2) Dark-mode toggle with persistence
+  const darkToggles = document.querySelectorAll('.dark-toggle');
+  const storedTheme = localStorage.getItem('ews-theme');
+  if (storedTheme === 'dark') {
     document.body.classList.add('dark');
   }
-
-  // Reveal animations on scroll
-  revealOnScroll();
-});
-
-// Toggle dark mode and save preference
-if (toggleButton) {
-  toggleButton.addEventListener('click', () => {
-    document.body.classList.toggle('dark');
-    const currentTheme = document.body.classList.contains('dark') ? 'dark' : 'light';
-    localStorage.setItem('theme', currentTheme);
+  darkToggles.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const isDark = document.body.classList.toggle('dark');
+      localStorage.setItem('ews-theme', isDark ? 'dark' : 'light');
+    });
   });
-}
 
-// ====== SCROLL REVEAL ANIMATION ======
-function revealOnScroll() {
-  const reveals = document.querySelectorAll('.reveal');
-
-  function animate() {
-    for (const el of reveals) {
-      const windowHeight = window.innerHeight;
-      const revealTop = el.getBoundingClientRect().top;
-      const revealPoint = 150;
-
-      if (revealTop < windowHeight - revealPoint) {
-        el.classList.add('active');
-      } else {
-        el.classList.remove('active');
-      }
-    }
-  }
-
-  animate(); // Run on load
-  window.addEventListener('scroll', animate);
-}
-// Scroll-triggered reveal using IntersectionObserver
-document.addEventListener('DOMContentLoaded', () => {
-  const reveals = document.querySelectorAll('.reveal');
-
-  const observer = new IntersectionObserver((entries, obs) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('active');
-        obs.unobserve(entry.target);
+  // 3) Smooth scrolling for internal links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const targetID = this.getAttribute('href');
+      if (targetID.length > 1 && document.querySelector(targetID)) {
+        e.preventDefault();
+        document.querySelector(targetID).scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+        // Close mobile menu after click
+        if (navMenu && navMenu.classList.contains('open')) {
+          navMenu.classList.remove('open');
+          navToggle.classList.remove('open');
+        }
       }
     });
-  }, {
-    threshold: 0.2
-  });
-
-  reveals.forEach(el => observer.observe(el));
-});
-// Mobile nav toggle
-document.addEventListener('DOMContentLoaded', () => {
-  const toggle = document.querySelector('.nav-toggle');
-  const menu   = document.querySelector('.nav-menu');
-  toggle.addEventListener('click', () => {
-    menu.classList.toggle('open');
-    toggle.classList.toggle('open');
   });
 });
-
