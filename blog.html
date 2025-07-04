@@ -1,3 +1,4 @@
+<!-- blog.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,7 +13,7 @@
   <header class="navbar" role="navigation" aria-label="Main Navigation">
     <div class="container navbar-content">
       <a href="index.html" class="logo-container">
-        <img src="assets/logo.png" alt="Logo" class="navbar-logo">
+        <img src="assets/logo.png" alt="Elite Web Services Logo" class="navbar-logo">
         <span class="brand-name">Elite Web Services</span>
       </a>
       <button class="nav-toggle" aria-label="Toggle menu"><span class="hamburger"></span></button>
@@ -33,12 +34,18 @@
     <section class="blog-list reveal">
       <h2>Latest Articles</h2>
       <div class="card-grid">
+        <!-- Example post; duplicate .card for each blog entry -->
         <article class="card">
           <h3>Zero Trust in Healthcare Cloud</h3>
-          <p>How to implement zero-trust models and maintain HIPAA/GDPR compliance on AWS environments.</p>
+          <p>Learn how to implement zero-trust models and maintain HIPAA/GDPR compliance on AWS.</p>
           <a href="#" class="btn btn-secondary">Read More →</a>
         </article>
-        <!-- Repeat for each post -->
+        <article class="card">
+          <h3>Scaling eCommerce for Black Friday</h3>
+          <p>How we helped a retailer handle 10× traffic with zero downtime.</p>
+          <a href="#" class="btn btn-secondary">Read More →</a>
+        </article>
+        <!-- ...more posts -->
       </div>
     </section>
   </main>
@@ -48,9 +55,5 @@
       <p>&copy; 2025 Elite Web Services. All rights reserved.</p>
     </div>
   </footer>
-
-  <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
 </body>
 </html>
-
-
