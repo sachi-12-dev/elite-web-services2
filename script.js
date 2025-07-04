@@ -85,3 +85,32 @@
     }, 100);
   }
 })();
+// Card info modal
+(function(){
+  var modal      = document.getElementById('infoModal');
+  var closeBtn   = modal.querySelector('.modal-close');
+  var titleEl    = modal.querySelector('#modalTitle');
+  var descEl     = modal.querySelector('#modalDesc');
+  // Open modal on card click
+  var cards = document.querySelectorAll('.card[data-title]');
+  for (var i=0; i<cards.length; i++){
+    cards[i].addEventListener('click', function(){
+      titleEl.textContent = this.getAttribute('data-title');
+      descEl.textContent  = this.getAttribute('data-details');
+      modal.classList.add('open');
+      modal.setAttribute('aria-hidden','false');
+    });
+  }
+  // Close modal
+  closeBtn.addEventListener('click', function(){
+    modal.classList.remove('open');
+    modal.setAttribute('aria-hidden','true');
+  });
+  // Also close on overlay click
+  modal.addEventListener('click', function(e){
+    if (e.target === modal) {
+      modal.classList.remove('open');
+      modal.setAttribute('aria-hidden','true');
+    }
+  });
+})();
