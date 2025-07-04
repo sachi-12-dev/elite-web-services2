@@ -2,21 +2,25 @@
 
 document.addEventListener('DOMContentLoaded', function() {
   // ===== Dark Mode Toggle with Persistence =====
-  var darkBtns = document.querySelectorAll('.dark-toggle');
-  var savedTheme = localStorage.getItem('ews-theme');
-  if (savedTheme === 'dark') {
+  var darkToggles = document.querySelectorAll('.dark-toggle');
+  var currentTheme = localStorage.getItem('ews-theme');
+  if (currentTheme === 'dark') {
     document.body.classList.add('dark');
   }
-  for (var i = 0; i < darkBtns.length; i++) {
-    darkBtns[i].addEventListener('click', function() {
+  for (var i = 0; i < darkToggles.length; i++) {
+    darkToggles[i].addEventListener('click', function() {
       var isDark = document.body.classList.toggle('dark');
-      try { localStorage.setItem('ews-theme', isDark ? 'dark' : 'light'); } catch(e) {}
+      try {
+        localStorage.setItem('ews-theme', isDark ? 'dark' : 'light');
+      } catch (e) {
+        console.warn('Could not save theme preference:', e);
+      }
     });
   }
 
   // ===== Mobile Menu Toggle =====
   var navToggle = document.querySelector('.nav-toggle');
-  var navMenu = document.querySelector('.nav-menu');
+  var navMenu   = document.querySelector('.nav-menu');
   if (navToggle && navMenu) {
     navToggle.addEventListener('click', function() {
       navMenu.classList.toggle('open');
@@ -25,27 +29,28 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   // ===== Reveal On Scroll =====
-  var reveals = document.querySelectorAll('.reveal');
-  function revealScroll() {
-    var vh = window.innerHeight;
+  function revealOnScroll() {
+    var reveals = document.querySelectorAll('.reveal');
+    var windowHeight = window.innerHeight;
     for (var j = 0; j < reveals.length; j++) {
-      var rect = reveals[j].getBoundingClientRect().top;
-      if (rect < vh * 0.8) {
-        reveals[j].classList.add('active');
+      var element = reveals[j];
+      var position = element.getBoundingClientRect().top;
+      if (position < windowHeight * 0.8) {
+        element.classList.add('active');
       }
     }
   }
-  window.addEventListener('scroll', revealScroll);
-  revealScroll();
+  window.addEventListener('scroll', revealOnScroll);
+  revealOnScroll();
 
   // ===== Smooth Scrolling & Close Mobile Menu =====
-  var links = document.querySelectorAll('a[href^="#"]');
-  for (var k = 0; k < links.length; k++) {
-    links[k].addEventListener('click', function(e) {
+  var anchors = document.querySelectorAll('a[href^="#"]');
+  for (var k = 0; k < anchors.length; k++) {
+    anchors[k].addEventListener('click', function(e) {
       var targetID = this.getAttribute('href');
       if (targetID.length > 1 && document.querySelector(targetID)) {
         e.preventDefault();
-        document.querySelector(targetID).scrollIntoView({ behavior: 'smooth', block: 'start' });
+        document.querySelector(targetID).scrollIntoView({ behavior: 'smooth' });
         if (navMenu && navMenu.classList.contains('open')) {
           navMenu.classList.remove('open');
           navToggle.classList.remove('open');
@@ -70,19 +75,19 @@ document.addEventListener('DOMContentLoaded', function() {
   // ===== Calendly Fade-In =====
   var cw = document.querySelector('.calendly-inline-widget');
   if (cw) {
-    cw.style.opacity = '0';
+    cw.style.opacity = 0;
     var iframe = cw.querySelector('iframe');
     if (iframe) {
       iframe.addEventListener('load', function() {
         cw.style.transition = 'opacity 0.6s ease-in';
-        cw.style.opacity = '1';
+        cw.style.opacity = 1;
       });
     }
   }
 
   // ===== Modal Popup for Cards =====
   var modal = document.getElementById('infoModal');
-  var closeBtns = modal ? modal.querySelectorAll('.modal-close') : [];
+  var closeBtn = modal ? modal.querySelector('.modal-close') : null;
   var titleEl = modal ? modal.querySelector('#modalTitle') : null;
   var descEl = modal ? modal.querySelector('#modalDesc') : null;
 
@@ -96,9 +101,8 @@ document.addEventListener('DOMContentLoaded', function() {
       modal.setAttribute('aria-hidden', 'false');
     });
   }
-  // Close actions
-  for (var c = 0; c < closeBtns.length; c++) {
-    closeBtns[c].addEventListener('click', function() {
+  if (closeBtn) {
+    closeBtn.addEventListener('click', function() {
       modal.classList.remove('open');
       modal.setAttribute('aria-hidden', 'true');
     });
@@ -112,5 +116,3 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 });
-
-
