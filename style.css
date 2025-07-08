@@ -364,3 +364,139 @@ footer {
   from { transform: translateY(20px); opacity: 0; }
   to   { transform: translateY(0); opacity: 1; }
 }
+/* ================= Navbar Base ================= */
+.navbar {
+  background: var(--nav-bg);
+  box-shadow: 0 2px 6px var(--card-shadow);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+}
+
+.navbar-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0.75rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+/* ================ Logo ================ */
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-logo {
+  height: 40px;
+  margin-right: 0.5rem;
+}
+
+.brand-name {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+/* ================ Nav Links ================ */
+.nav-actions-wrap {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.nav-menu {
+  display: flex;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-links a {
+  position: relative;
+  padding: 0.5rem 0;
+  color: var(--text);
+  font-weight: 500;
+  transition: color var(--transition);
+}
+
+.nav-links a.active,
+.nav-links a:hover {
+  color: var(--primary);
+}
+
+.nav-links a.active::after,
+.nav-links a:hover::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--primary);
+}
+
+/* ================ Dark Toggle ================ */
+.dark-toggle {
+  font-size: 1.25rem;
+  padding: 0.4rem;
+  border-radius: 50%;
+  color: var(--primary);
+  transition: background var(--transition), transform var(--transition);
+}
+
+.dark-toggle:hover {
+  background: rgba(212,175,55,0.1);
+  transform: scale(1.1);
+}
+
+/* ================ Mobile Menu Toggle ================ */
+.nav-toggle {
+  display: none;
+  padding: 0.5rem;
+}
+
+.hamburger,
+.hamburger::before,
+.hamburger::after {
+  content: '';
+  display: block;
+  width: 24px;
+  height: 3px;
+  background: var(--text);
+  border-radius: 2px;
+  position: relative;
+  transition: transform var(--transition);
+}
+
+.hamburger::before { top: -8px; }
+.hamburger::after  { top: 8px; }
+
+@media (max-width: 768px) {
+  .nav-toggle {
+    display: block;
+  }
+  .nav-menu {
+    position: absolute;
+    top: 100%;
+    right: 1rem;
+    background: var(--nav-bg);
+    flex-direction: column;
+    width: 200px;
+    padding: 1rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    display: none;
+  }
+  .nav-menu.open {
+    display: flex;
+  }
+  .nav-links {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+}
