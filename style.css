@@ -1,30 +1,30 @@
 /* ======================= CSS Variables ======================= */
 :root {
-  --nav-bg: #111111;
+  --nav-bg: #111;
   --primary: #D4AF37;
-  --text: #333333;
-  --background: #ffffff;
+  --text: #333;
+  --background: #fff;
   --secondary-bg: #f8f8f8;
-  --card-bg: #ffffff;
-  --card-shadow: rgba(0, 0, 0, 0.05);
+  --card-bg: #fff;
+  --card-shadow: rgba(0, 0, 0, 0.06);
+  --transition: 0.3s ease;
+  --radius: 6px;
 }
 
 body.dark {
   --nav-bg: #1e1e1e;
   --background: #121212;
   --secondary-bg: #1e1e1e;
-  --text: #eeeeee;
+  --text: #eee;
   --card-bg: #1e1e1e;
-  --card-shadow: rgba(0, 0, 0, 0.2);
+  --card-shadow: rgba(255, 255, 255, 0.05);
 }
 
 /* ======================= Reset & Base ======================= */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
+* {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 body {
@@ -32,28 +32,47 @@ body {
   background: var(--background);
   color: var(--text);
   line-height: 1.6;
-  transition: background 0.3s ease, color 0.3s ease;
+  transition: background var(--transition), color var(--transition);
 }
 
-a { text-decoration: none; }
-li { list-style: none; }
-button { font-family: inherit; cursor: pointer; }
-html { scroll-behavior: smooth; }
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+html {
+  scroll-behavior: smooth;
+}
 
 /* ======================= Navbar ======================= */
 .navbar {
   background: var(--nav-bg);
-  box-shadow: 0 2px 4px var(--card-shadow);
   position: sticky;
   top: 0;
-  z-index: 1000;
+  z-index: 999;
+  box-shadow: 0 2px 6px var(--card-shadow);
+  padding: 1rem 0;
+  transition: background var(--transition);
 }
 
 .navbar-content {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 1rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem;
 }
 
 .logo-container {
@@ -63,7 +82,7 @@ html { scroll-behavior: smooth; }
 
 .navbar-logo {
   height: 40px;
-  margin-right: 0.5rem;
+  margin-right: 0.75rem;
 }
 
 .brand-name {
@@ -79,300 +98,44 @@ html { scroll-behavior: smooth; }
 
 .nav-links {
   display: flex;
-  align-items: center;
+  gap: 1.5rem;
 }
 
-.nav-links a,
-.nav-links button {
-  margin-left: 1.5rem;
+.nav-links a {
   color: var(--text);
-  transition: color 0.3s ease;
+  padding-bottom: 0.25rem;
+  transition: color var(--transition), border-color var(--transition);
 }
 
 .nav-links a:hover,
-.nav-links .active {
+.nav-links a.active {
   color: var(--primary);
+  border-bottom: 2px solid var(--primary);
 }
 
-/* ======================= Mobile Nav Toggle ======================= */
-.nav-toggle.icon-btn {
+.dark-toggle {
+  margin-left: 1rem;
+  font-size: 1.25rem;
+}
+
+/* Mobile Toggle */
+.nav-toggle {
   display: none;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 0.5rem;
 }
 
-.hamburger,
-.hamburger::before,
-.hamburger::after {
-  width: 24px;
-  height: 3px;
-  background: var(--text);
-  display: block;
-  border-radius: 2px;
-  position: relative;
-  transition: transform 0.3s ease;
-}
-.hamburger::before,
-.hamburger::after {
-  content: '';
-  position: absolute;
-}
-.hamburger::before { top: -8px; }
-.hamburger::after  { top: 8px; }
-
-/* ======================= Container & Sections ======================= */
-.container {
-  width: 90%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 2rem 0;
-}
-
-section h2 {
-  text-align: center;
-  font-size: 2rem;
-  margin-bottom: 2rem;
-  color: var(--nav-bg);
-}
-
-/* ======================= Hero Section ======================= */
-.hero {
-  background: linear-gradient(135deg, var(--nav-bg) 0%, var(--primary) 100%);
-  color: #ffffff;
-  text-align: center;
-  padding: 6rem 0;
-}
-
-.hero h1 {
-  font-size: 2.75rem;
-  margin-bottom: 1rem;
-  animation: fadeInDown 1s ease-out both;
-}
-
-.hero p {
-  font-size: 1.25rem;
-  margin-bottom: 2rem;
-  animation: fadeInDown 1.2s ease-out both;
-}
-
-.hero-cta {
-  display: inline-flex;
-  gap: 1rem;
-}
-
-.hero-cta .btn-primary {
-  background: var(--primary) !important;
-  color: #fff !important;
-  border: none;
-}
-
-.hero-cta .btn-secondary {
-  background: transparent !important;
-  border: 2px solid #fff !important;
-  color: #fff !important;
-}
-
-/* ======================= Buttons ======================= */
-.btn {
-  display: inline-block;
-  padding: 0.75rem 1.5rem;
-  border-radius: 4px;
-  font-weight: 500;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
-
-.btn-primary {
-  background: var(--primary);
-  color: #ffffff;
-  border: none;
-}
-
-.btn-primary:hover {
-  opacity: 0.9 !important;
-  transform: translateY(-2px) !important;
-}
-
-.btn-secondary {
-  background: none;
-  border: 2px solid var(--primary);
-  color: var(--primary);
-}
-
-body.dark .btn-secondary {
-  border-color: #ffffff;
-  color: #ffffff;
-}
-
-.btn-block {
-  width: 100%;
-}
-
-/* ======================= Cards, Grids, Features ======================= */
-.card {
-  background: var(--card-bg);
-  border-left: 5px solid var(--primary);
-  border-radius: 4px;
-  padding: 1.5rem;
-  box-shadow: 0 2px 8px var(--card-shadow);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 12px 24px var(--card-shadow);
-}
-
-.feature-grid,
-.service-grid,
-.pricing-grid,
-.steps {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 2rem;
-}
-
-.steps .step-number {
-  width: 3rem;
-  height: 3rem;
-  line-height: 3rem;
-  border-radius: 50%;
-  background: var(--primary);
-  color: #fff;
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-}
-
-.pricing-item.popular {
-  border: 2px solid var(--primary);
-}
-
-.price {
-  font-size: 2rem;
-  color: var(--nav-bg);
-  margin: 1rem 0;
-}
-
-.pricing-item ul {
-  margin-bottom: 1.5rem;
-}
-
-/* ======================= Testimonials ======================= */
-.testimonial-slider {
-  display: flex;
-  overflow-x: auto;
-  gap: 1rem;
-  scroll-snap-type: x mandatory;
-}
-
-.testimonial-item {
-  min-width: 300px;
-  flex: 0 0 auto;
-  scroll-snap-align: start;
-}
-
-.testimonial-item p {
-  font-style: italic;
-  margin-bottom: 1rem;
-}
-
-.testimonial-item h5 {
-  text-align: right;
-  color: var(--primary);
-}
-
-/* ======================= FAQ ======================= */
-.faq-item {
-  margin-bottom: 1.5rem;
-}
-
-.faq-item h4 {
-  font-size: 1.25rem;
-  margin-bottom: 0.5rem;
-  color: var(--nav-bg);
-}
-
-/* ======================= Forms & Newsletter ======================= */
-.newsletter-form {
-  display: flex;
-  max-width: 400px;
-  margin: 1rem auto;
-  gap: 0.5rem;
-}
-
-.newsletter-form input {
-  flex: 1;
-  padding: 0.75rem;
-  border: 2px solid var(--secondary-bg);
-  border-radius: 4px;
-}
-
-/* ======================= Contact ======================= */
-.contact-frame {
-  width: 100%;
-  min-height: 600px;
-  border: none;
-  margin-top: 2rem;
-}
-
-/* ======================= Back to Top ======================= */
-.back-to-top {
-  position: fixed;
-  bottom: 2rem;
-  right: 2rem;
-  background: var(--primary);
-  color: #ffffff;
-  border: none;
-  border-radius: 50%;
-  width: 3rem;
-  height: 3rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.25rem;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
-
-/* ======================= Reveal Animation ======================= */
-.reveal {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-}
-
-.reveal.active {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* ======================= Optimized Navbar Actions ======================= */
-.nav-actions-wrap {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
-/* ======================= Mobile Nav Styles ======================= */
 @media (max-width: 768px) {
-  .nav-toggle.icon-btn {
-    display: flex;
+  .nav-toggle {
+    display: block;
   }
   .nav-menu {
-    display: none;
-    flex-direction: column;
-    width: 100%;
-    background: var(--nav-bg);
     position: absolute;
-    top: 100%;
-    right: 0;
+    right: 1rem;
+    top: 70px;
+    background: var(--nav-bg);
+    flex-direction: column;
+    display: none;
     padding: 1rem;
+    width: 100%;
   }
   .nav-menu.open {
     display: flex;
@@ -380,23 +143,60 @@ body.dark .btn-secondary {
   .nav-links {
     flex-direction: column;
   }
-  .nav-links li + li {
-    margin-top: 1rem;
+  .nav-links a {
+    margin: 0.5rem 0;
   }
 }
-/* ================= Scroll Progress Bar ================= */
-#scrollProgress {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 0;
-  height: 4px;
-  background: var(--primary);
-  z-index: 1500;
-  transition: width 0.25s ease;
+
+/* ======================= Hero Section ======================= */
+.hero {
+  background: linear-gradient(135deg, var(--nav-bg), var(--primary));
+  color: white;
+  padding: 5rem 1rem;
+  text-align: center;
 }
 
-/* ================= Modal Overlay & Content ================= */
+.hero h1 {
+  font-size: 2.75rem;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.hero-cta {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+/* ======================= Cards & Grids ======================= */
+.card {
+  background: var(--card-bg);
+  border-left: 5px solid var(--primary);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px var(--card-shadow);
+  transition: transform var(--transition), box-shadow var(--transition);
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 24px var(--card-shadow);
+}
+
+.feature-grid,
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+/* ======================= Modal ======================= */
 .modal {
   position: fixed;
   top: 0;
@@ -409,62 +209,51 @@ body.dark .btn-secondary {
   background: rgba(0, 0, 0, 0.6);
   z-index: 2000;
 }
+
 .modal.open {
   display: flex;
 }
+
 .modal-content {
   background: var(--background);
   color: var(--text);
   padding: 2rem;
-  border-radius: 0.5rem;
-  max-width: 90%;
-  width: 360px;
-  box-shadow: 0 4px 16px var(--card-shadow);
+  border-radius: var(--radius);
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 8px 20px var(--card-shadow);
   position: relative;
   animation: slideInUp 0.4s ease-out;
 }
+
 .modal-close {
   position: absolute;
   top: 1rem;
   right: 1rem;
-  background: none;
-  border: none;
   font-size: 1.5rem;
   color: var(--text);
-  cursor: pointer;
-  transition: color 0.2s ease;
 }
+
 .modal-close:hover {
   color: var(--primary);
 }
 
-/* ================= Back-to-Top Button Adjustments ================= */
-#backToTop {
-  bottom: 1.5rem;
-  right: 1.5rem;
-  width: 3rem;
-  height: 3rem;
-  font-size: 1.25rem;
-  background: var(--primary);
-  color: #fff;
-  border-radius: 50%;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  opacity: 0.8;
-  transition: opacity 0.3s ease, transform 0.3s ease;
-}
-#backToTop:hover {
-  opacity: 1;
-  transform: translateY(-3px);
-}
-
-/* ================= Active Section Link Border ================= */
-.nav-links a.active {
-  border-bottom: 2px solid var(--primary);
-  padding-bottom: 0.25rem;
-}
-
-/* ================= Animations ================= */
 @keyframes slideInUp {
-  from { transform: translateY(20px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ======================= Footer ======================= */
+footer {
+  background: var(--nav-bg);
+  color: white;
+  text-align: center;
+  padding: 2rem 1rem;
+  margin-top: 4rem;
 }
