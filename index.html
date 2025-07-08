@@ -5,10 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Elite Web Services | AWS Cloud Solutions</title>
   <link rel="stylesheet" href="style.css">
-  <meta name="description" content="Elite Web Services delivers centralized AWS visibility, control, and optimization via our MCC-Lite dashboard.">
+  <meta name="description" content="Centralized AWS visibility, cost optimization, and security monitoring via our MCC-Lite dashboard.">
 </head>
 <body>
-  <!-- Optimized Navbar -->
+  <!-- Sticky Navbar -->
   <header class="navbar" role="navigation" aria-label="Main Navigation">
     <div class="container navbar-content">
       <a href="index.html" class="logo-container">
@@ -23,9 +23,8 @@
             <li><a href="#services">Services</a></li>
             <li><a href="case-studies.html">Case Studies</a></li>
             <li><a href="blog.html">Blog</a></li>
-            <li><a href="resources.html">Resources</a></li>
-            <li><a href="dashboard.html">Dashboard</a></li>
             <li><a href="#consultation">Consultation</a></li>
+            <li><a href="#about">About</a></li>
           </ul>
         </nav>
         <button class="dark-toggle" aria-label="Toggle Dark Mode">🌙</button>
@@ -41,7 +40,7 @@
     <section id="hero" class="hero reveal">
       <div class="container">
         <h1>Centralized AWS Visibility &amp; Control</h1>
-        <p>Experience unified monitoring, cost optimization, security scanning, and automation in one dashboard.</p>
+        <p>Unified monitoring, cost optimization, security scanning, and automation—all in one dashboard.</p>
         <div class="hero-cta">
           <a href="#features" class="btn btn-primary">Learn More</a>
           <a href="dashboard.html" class="btn btn-secondary">Sign In</a>
@@ -56,19 +55,20 @@
         <div class="feature-grid">
           <div class="card feature-item" data-title="Multi-Account Visibility" data-details="See all AWS accounts and resources in a single pane.">
             <h3>Multi-Account Visibility</h3>
-            <p>See all AWS accounts and resources in a single pane.</p>
+            <p>Aggregate and monitor multiple AWS accounts from one location.</p>
           </div>
           <div class="card feature-item" data-title="Cost Optimization" data-details="Identify waste and reduce spend across your AWS footprint.">
             <h3>Cost Optimization</h3>
-            <p>Identify waste and reduce spend across your AWS footprint.</p>
+            <p>Analyze usage and implement saving plans and rightsizing.
+</p>
           </div>
           <div class="card feature-item" data-title="Security Monitoring" data-details="Continuously scan for vulnerabilities and compliance issues.">
             <h3>Security Monitoring</h3>
-            <p>Continuously scan for vulnerabilities and compliance issues.</p>
+            <p>Auto-detect misconfigurations and enforce best practices.</p>
           </div>
           <div class="card feature-item" data-title="Automation" data-details="Trigger actions and alerts based on custom rules.">
             <h3>Automation</h3>
-            <p>Trigger actions and alerts based on custom rules.</p>
+            <p>Set up Lambda-backed remediations and alerts.</p>
           </div>
         </div>
       </div>
@@ -79,21 +79,21 @@
       <div class="container">
         <h2>Our Services</h2>
         <div class="service-grid">
-          <div class="card service-item" data-title="Managed Monitoring" data-details="24/7 monitoring of AWS resources by our expert team.">
+          <div class="card service-item" data-title="Managed Monitoring" data-details="24/7 expert AWS resource monitoring.">
             <h3>Managed Monitoring</h3>
-            <p>24/7 monitoring of AWS resources by our expert team.</p>
+            <p>Continuous infrastructure and health checks.</p>
           </div>
           <div class="card service-item" data-title="Cloud Architecture" data-details="Design and deploy scalable, secure AWS solutions.">
             <h3>Cloud Architecture</h3>
-            <p>Design and deploy scalable, secure AWS solutions.</p>
+            <p>Custom AWS blueprints for resilience and performance.</p>
           </div>
           <div class="card service-item" data-title="Cost Audits" data-details="Comprehensive financial reviews to reduce spend.">
             <h3>Cost Audits</h3>
-            <p>Comprehensive financial reviews to reduce spend.</p>
+            <p>Identify idle resources and waste for savings.</p>
           </div>
           <div class="card service-item" data-title="Security Assessments" data-details="Identify vulnerabilities and enforce best practices.">
             <h3>Security Assessments</h3>
-            <p>Identify vulnerabilities and enforce best practices.</p>
+            <p>Penetration testing, compliance checks, and reporting.</p>
           </div>
         </div>
       </div>
@@ -103,7 +103,7 @@
     <section id="consultation" class="consultation reveal">
       <div class="container">
         <h2>Book an AWS Consultation</h2>
-        <p>Pick a time that works for you to discuss your AWS agenda:</p>
+        <p>Schedule a session to discuss your AWS needs:</p>
         <div class="calendly-inline-widget" data-url="https://calendly.com/ibesean7/aws-consultation" style="min-width:320px;height:630px;"></div>
       </div>
     </section>
@@ -112,12 +112,12 @@
     <section id="about" class="about reveal">
       <div class="container">
         <h2>About Us</h2>
-        <p>Elite Web Services is your AWS partner for scalable, secure, and cost-effective cloud management solutions.</p>
+        <p>Elite Web Services partners with you to deliver scalable, secure, and cost-effective AWS management.</p>
       </div>
     </section>
   </main>
 
-  <!-- Info Modal (Dynamic for Cards) -->
+  <!-- Info Modal -->
   <div id="infoModal" class="modal" aria-hidden="true">
     <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
       <button class="modal-close" aria-label="Close">&times;</button>
@@ -125,6 +125,9 @@
       <p id="modalDesc"></p>
     </div>
   </div>
+
+  <!-- Back to Top -->
+  <button id="backToTop" aria-label="Back to Top">↑</button>
 
   <!-- Footer -->
   <footer>
