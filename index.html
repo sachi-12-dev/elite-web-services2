@@ -2,34 +2,43 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Elite Web Services | AWS Cloud Solutions</title>
-  <link rel="stylesheet" href="style.css">
   <meta name="description" content="Centralized AWS visibility, cost optimization, and security monitoring via our MCC-Lite dashboard.">
+  <!-- Favicon -->
+  <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+  <!-- Google Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lucide-static@0.0.39/dist/lucide.css">
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="light">
   <!-- Unified Navbar -->
   <header class="navbar" role="navigation" aria-label="Main Navigation">
     <div class="container navbar-content">
       <a href="index.html" class="logo-container">
-        <img src="assets/logo.png" alt="Elite Web Services Logo" class="navbar-logo">
+        <img src="assets/logo.png" alt="Elite Web Services Logo" class="navbar-logo" loading="lazy">
         <span class="brand-name">Elite Web Services</span>
       </a>
-      <div class="nav-actions-wrap">
-        <nav class="nav-menu">
-          <ul class="nav-links">
-            <li><a href="index.html" class="active">Home</a></li>
-            <li><a href="#features">Features</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="case-studies.html">Case Studies</a></li>
-            <li><a href="blog.html">Blog</a></li>
-            <li><a href="#consultation">Consultation</a></li>
-            <li><a href="#about">About</a></li>
-          </ul>
-        </nav>
-        <button class="dark-toggle" aria-label="Toggle Dark Mode">🌙</button>
+      <nav class="nav-menu">
         <button class="nav-toggle icon-btn" aria-label="Toggle menu">
-          <span class="hamburger"></span>
+          <i data-feather="menu"></i>
+        </button>
+        <ul class="nav-links">
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="case-studies.html">Case Studies</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="#consultation">Consultation</a></li>
+          <li><a href="#about">About</a></li>
+        </ul>
+      </nav>
+      <div class="nav-actions-wrap">
+        <button id="darkToggle" class="dark-toggle icon-btn" aria-label="Toggle Dark Mode">
+          <i data-feather="moon"></i>
         </button>
       </div>
     </div>
@@ -37,7 +46,7 @@
 
   <main>
     <!-- Hero Section -->
-    <section id="hero" class="hero reveal">
+    <section id="hero" class="hero">
       <div class="container">
         <h1>Centralized AWS Visibility &amp; Control</h1>
         <p>Unified monitoring, cost optimization, security scanning, and automation—all in one dashboard.</p>
@@ -49,57 +58,57 @@
     </section>
 
     <!-- Features Section -->
-    <section id="features" class="features reveal">
+    <section id="features" class="features">
       <div class="container">
         <h2>Mission Control Features</h2>
         <div class="feature-grid">
-          <div class="card feature-item" data-title="Multi-Account Visibility" data-details="See all AWS accounts and resources in a single pane.">
+          <article class="card feature-item" tabindex="0">
             <h3>Multi-Account Visibility</h3>
             <p>Aggregate and monitor multiple AWS accounts from one location.</p>
-          </div>
-          <div class="card feature-item" data-title="Cost Optimization" data-details="Identify waste and reduce spend across your AWS footprint.">
+          </article>
+          <article class="card feature-item" tabindex="0">
             <h3>Cost Optimization</h3>
             <p>Analyze usage and implement saving plans and rightsizing.</p>
-          </div>
-          <div class="card feature-item" data-title="Security Monitoring" data-details="Continuously scan for vulnerabilities and compliance issues.">
+          </article>
+          <article class="card feature-item" tabindex="0">
             <h3>Security Monitoring</h3>
             <p>Auto-detect misconfigurations and enforce best practices.</p>
-          </div>
-          <div class="card feature-item" data-title="Automation" data-details="Trigger actions and alerts based on custom rules.">
+          </article>
+          <article class="card feature-item" tabindex="0">
             <h3>Automation</h3>
             <p>Set up Lambda-backed remediations and alerts.</p>
-          </div>
+          </article>
         </div>
       </div>
     </section>
 
     <!-- Services Section -->
-    <section id="services" class="services reveal">
+    <section id="services" class="services">
       <div class="container">
         <h2>Our Services</h2>
         <div class="service-grid">
-          <div class="card service-item" data-title="Managed Monitoring" data-details="24/7 expert AWS resource monitoring.">
+          <article class="card service-item" tabindex="0">
             <h3>Managed Monitoring</h3>
             <p>Continuous infrastructure and health checks.</p>
-          </div>
-          <div class="card service-item" data-title="Cloud Architecture" data-details="Design and deploy scalable, secure AWS solutions.">
+          </article>
+          <article class="card service-item" tabindex="0">
             <h3>Cloud Architecture</h3>
             <p>Custom AWS blueprints for resilience and performance.</p>
-          </div>
-          <div class="card service-item" data-title="Cost Audits" data-details="Comprehensive financial reviews to reduce spend.">
+          </article>
+          <article class="card service-item" tabindex="0">
             <h3>Cost Audits</h3>
             <p>Identify idle resources and waste for savings.</p>
-          </div>
-          <div class="card service-item" data-title="Security Assessments" data-details="Identify vulnerabilities and enforce best practices.">
+          </article>
+          <article class="card service-item" tabindex="0">
             <h3>Security Assessments</h3>
             <p>Penetration testing, compliance checks, and reporting.</p>
-          </div>
+          </article>
         </div>
       </div>
     </section>
 
     <!-- Consultation Section -->
-    <section id="consultation" class="consultation reveal">
+    <section id="consultation" class="consultation">
       <div class="container">
         <h2>Book an AWS Consultation</h2>
         <p>Schedule a session to discuss your AWS needs:</p>
@@ -108,7 +117,7 @@
     </section>
 
     <!-- About Section -->
-    <section id="about" class="about reveal">
+    <section id="about" class="about">
       <div class="container">
         <h2>About Us</h2>
         <p>Elite Web Services partners with you to deliver scalable, secure, and cost-effective AWS management.</p>
@@ -119,12 +128,14 @@
   <!-- Shared Modal & Back-to-Top -->
   <div id="infoModal" class="modal" aria-hidden="true">
     <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-      <button class="modal-close" aria-label="Close">&times;</button>
+      <button class="modal-close icon-btn" aria-label="Close"><i data-feather="x"></i></button>
       <h3 id="modalTitle"></h3>
       <p id="modalDesc"></p>
     </div>
   </div>
-  <button id="backToTop" aria-label="Back to Top">↑</button>
+  <button id="backToTop" class="back-to-top icon-btn" aria-label="Back to Top" hidden>
+    <i data-feather="arrow-up"></i>
+  </button>
 
   <!-- Footer -->
   <footer>
@@ -134,7 +145,8 @@
   </footer>
 
   <!-- Scripts -->
-  <script src="script.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+  <script defer src="script.js"></script>
   <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
 </body>
 </html>
