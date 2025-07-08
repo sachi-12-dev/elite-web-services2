@@ -1,167 +1,187 @@
-/* style.css - Enhanced Integration & Modal Fixes for Elite Web Services */
+/* style.css - Modular, Structured, and Feature-Rich Stylesheet for Elite Web Services (Index + Dashboard) */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* Table of Contents:
+   1. CSS Variables & Theming
+   2. Reset & Base Styles
+   3. Utility Classes
+   4. Layout & Container
+   5. Typography
+   6. Navbar & Navigation
+   7. Hero Section
+   8. Button Styles
+   9. Grids: Features, Services, Lists
+  10. Card Component
+  11. Modal & Overlay
+  12. Back-to-Top Button
+  13. Consultation & About Sections
+  14. Dashboard-Specific Styles
+  15. Footer
+  16. Responsive Media Queries
+*/
 
-/* ======================= CSS Variables & Theme ======================= */
+/* 1. CSS Variables & Theming -------------------------------------------------------------- */
 :root {
   /* Color Palette */
-  --nav-bg: #111;
-  --bg: #fff;
-  --text: #333;
-  --muted: #666;
-  --accent: #D4AF37;
-  --card-bg: #fff;
-  --card-shadow: rgba(0,0,0,0.05);
-  --overlay: rgba(0,0,0,0.6);
+  --color-nav-bg: #111;
+  --color-nav-text: #eee;
+  --color-bg: #fff;
+  --color-text: #333;
+  --color-accent: #D4AF37;
+  --color-muted: #666;
+  --color-card-bg: #fff;
+  --color-overlay: rgba(0,0,0,0.6);
+  --color-shadow: rgba(0,0,0,0.06);
 
   /* Typography */
-  --font: 'Inter', sans-serif;
-  --fz-base: 1rem;
-  --fz-lg: 1.125rem;
-  --fz-xl: 2rem;
-  --lh: 1.6;
+  --font-family-base: 'Inter', sans-serif;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 2rem;
+  --line-height: 1.6;
 
-  /* Spacing & Layout */
-  --sp: 1rem;
-  --radius: 8px;
-  --max-w: 1200px;
+  /* Spacing */
+  --space-xxs: 0.25rem;
+  --space-xs: 0.5rem;
+  --space-sm: 0.75rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+
+  /* Border Radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
 
   /* Transitions */
-  --trans: 0.3s ease;
-}
-body.dark {
-  --nav-bg: #1e1e1e;
-  --bg: #121212;
-  --text: #eee;
-  --card-bg: #1e1e1e;
-  --card-shadow: rgba(0,0,0,0.2);
+  --trans-fast: 0.2s ease;
+  --trans-med: 0.3s ease;
+  --trans-slow: 0.5s ease;
 }
 
-/* ======================= Reset & Base ======================= */
+body.dark {
+  --color-bg: #1e1e1e;
+  --color-text: #ccc;
+  --color-card-bg: #2a2a2a;
+  --color-shadow: rgba(0,0,0,0.2);
+}
+
+/* 2. Reset & Base Styles ---------------------------------------------------------------- */
 *, *::before, *::after {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
+
 html {
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-base);
   scroll-behavior: smooth;
-  font-family: var(--font);
-  font-size: var(--fz-base);
 }
+
 body {
-  background: var(--bg);
-  color: var(--text);
-  line-height: var(--lh);
-  transition: background var(--trans), color var(--trans);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  line-height: var(--line-height);
   overflow-x: hidden;
 }
+
+img, picture, video {
+  max-width: 100%;
+  display: block;
+}
+
 a {
   color: inherit;
   text-decoration: none;
 }
-ul {
+
+ul, li {
   list-style: none;
 }
-img {
-  display: block;
-  max-width: 100%;
-  height: auto;
-}
+
 button {
-  font-family: inherit;
-  cursor: pointer;
   background: none;
   border: none;
+  cursor: pointer;
 }
 
-/* ======================= Layout Utilities ======================= */
+/* 3. Utility Classes --------------------------------------------------------------------- */
+.mt-xxs { margin-top: var(--space-xxs); }
+.mt-xs  { margin-top: var(--space-xs); }
+.mt-sm  { margin-top: var(--space-sm); }
+.mt-md  { margin-top: var(--space-md); }
+.mt-lg  { margin-top: var(--space-lg); }
+.mt-xl  { margin-top: var(--space-xl); }
+
+.mx-auto { margin-left: auto; margin-right: auto; }
+.text-center { text-align: center; }
+.flex { display: flex; }
+.flex-center { display: flex; align-items: center; justify-content: center; }
+.grid { display: grid; }
+.shadow-sm { box-shadow: 0 2px 4px var(--color-shadow); }
+.shadow-md { box-shadow: 0 4px 12px var(--color-shadow); }
+.transition { transition: all var(--trans-med); }
+.rounded-sm { border-radius: var(--radius-sm); }
+.rounded-md { border-radius: var(--radius-md); }
+.rounded-lg { border-radius: var(--radius-lg); }
+
+/* 4. Layout & Container ------------------------------------------------------------------ */
 .container {
   width: 90%;
-  max-width: var(--max-w);
+  max-width: var(--space-xl);
   margin: 0 auto;
-  padding: var(--sp) 0;
+  padding: var(--space-md) 0;
 }
-.flex-center {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.mt { margin-top: var(--sp); }
-.mb { margin-bottom: var(--sp); }
 
-/* ======================= Navbar ======================= */
+/* 5. Typography -------------------------------------------------------------------------- */
+h1, .h1 { font-size: clamp(2rem, 5vw, var(--font-size-xl)); }
+h2, .h2 { font-size: var(--font-size-xl); }
+h3, .h3 { font-size: var(--font-size-lg); }
+p, li { font-size: var(--font-size-base); }
+
+/* 6. Navbar & Navigation ----------------------------------------------------------------- */
 .navbar {
-  background: var(--nav-bg);
-  color: var(--text);
-  backdrop-filter: saturate(180%) blur(10px);
+  background-color: var(--color-nav-bg);
+  color: var(--color-nav-text);
   position: sticky;
   top: 0;
   z-index: 1000;
-  box-shadow: 0 2px 6px var(--card-shadow);
+  backdrop-filter: saturate(180%) blur(10px);
+  box-shadow: 0 2px 6px var(--color-shadow);
 }
+
 .navbar-content {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: var(--sp);
+  @apply container flex-center justify-between;
 }
-.logo-container {
-  display: flex;
-  align-items: center;
-}
-.navbar-logo {
-  height: 40px;
-  margin-right: var(--sp);
-}
-.brand-name {
-  font-size: var(--fz-lg);
-  font-weight: 700;
-  color: var(--accent);
-}
-.nav-links {
-  display: flex;
-  gap: 1.5rem;
-}
+
+.logo-container { display: flex; align-items: center; }
+.navbar-logo { height: 40px; margin-right: var(--space-sm); }
+.brand-name { font-weight: 700; color: var(--color-accent); }
+
+.nav-menu { display: flex; align-items: center; }
+.nav-links { display: flex; gap: var(--space-lg); }
 .nav-links a {
   position: relative;
-  padding: 0.5rem 0;
+  padding: var(--space-xs) 0;
   font-weight: 500;
-  transition: color var(--trans);
+  transition: color var(--trans-fast);
 }
 .nav-links a:hover,
-.nav-links a.active {
-  color: var(--accent);
-}
+.nav-links a.active { color: var(--color-accent); }
 .nav-links a::after {
   content: '';
   position: absolute;
-  bottom: -4px;
+  bottom: -2px;
   left: 0;
   width: 0;
   height: 2px;
-  background: var(--accent);
-  transition: width var(--trans);
+  background: var(--color-accent);
+  transition: width var(--trans-fast);
 }
 .nav-links a:hover::after,
 .nav-links a.active::after { width: 100%; }
-.nav-actions-wrap {
-  display: flex;
-  align-items: center;
-  gap: var(--sp);
-}
-.icon-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--bg);
-  padding: 0.5rem;
-  border-radius: 50%;
-  transition: background var(--trans), transform var(--trans);
-}
-.icon-btn:hover { background: var(--accent); color: #fff; transform: scale(1.1); }
 
-.dark-toggle { font-size: var(--fz-xl); }
-
-/* Mobile Menu */
-.nav-toggle { display: none; flex-direction: column; gap: 4px; }
+.nav-toggle { display: none; flex-direction: column; gap: var(--space-xxs); }
 .nav-toggle span,
 .nav-toggle span::before,
 .nav-toggle span::after {
@@ -169,124 +189,210 @@ button {
   display: block;
   width: 24px;
   height: 3px;
-  background: var(--text);
+  background: var(--color-nav-text);
   border-radius: 2px;
-  transition: transform var(--trans);
 }
 .nav-toggle span::before { transform: translateY(-6px); }
-.nav-toggle span::after { transform: translateY(3px); }
+.nav-toggle span::after  { transform: translateY(6px); }
+
 @media (max-width: 768px) {
   .nav-toggle { display: flex; }
-  .nav-menu { display: none; position: absolute; top: 100%; right: var(--sp); background: var(--nav-bg); flex-direction: column; padding: var(--sp); box-shadow: 0 4px 12px var(--card-shadow); border-radius: var(--radius); }
+  .nav-menu { display: none; position: absolute; top: 100%; right: var(--space-md); background: var(--color-nav-bg); flex-direction: column; padding: var(--space-md); border-radius: var(--radius-md); box-shadow: 0 4px 12px var(--color-shadow); }
   .nav-menu.open { display: flex; }
-  .nav-links { flex-direction: column; gap: var(--sp); }
+  .nav-links { flex-direction: column; gap: var(--space-md); }
 }
 
-/* ======================= Hero Section ======================= */
+/* 7. Hero Section ------------------------------------------------------------------------ */
 .hero {
-  background: linear-gradient(135deg, var(--nav-bg), var(--accent));
+  background: linear-gradient(135deg, var(--color-nav-bg), var(--color-accent));
   color: #fff;
-  text-align: center;
   padding: 6rem 1rem;
+  text-align: center;
 }
-.hero h1 {
-  font-size: clamp(2rem, 5vw, 2.75rem);
-  margin-bottom: var(--sp);
-  animation: fadeInDown 1s ease-out both;
-}
-.hero p {
-  font-size: clamp(1rem, 2.5vw, 1.25rem);
-  margin-bottom: 2rem;
-  animation: fadeInDown 1.2s ease-out both;
-}
-.hero-cta { display: inline-flex; gap: var(--sp); }
-@keyframes fadeInDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
+.hero h1 { margin-bottom: var(--space-md); }
+.hero p { margin-bottom: var(--space-lg); }
 
-/* ======================= Sections & Grids ======================= */
-section { padding: var(--sp) 0; }
-section.reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
-section.reveal.active { opacity: 1; transform: translateY(0); }
-.features, .services, .consultation, .about { background: var(--secondary-bg); }
-section h2 { text-align: center; font-size: var(--fz-xl); margin-bottom: 2rem; }
-.feature-grid, .service-grid, .blog-list, .case-list, .resource-list { display: grid; gap: 2rem; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+/* Reveal animation for hero */
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.hero h1,
+.hero p { animation: fadeInDown var(--trans-med) ease-out both; }
+
+/* 8. Button Styles ----------------------------------------------------------------------- */
+.btn {
+  padding: var(--space-sm) var(--space-lg);
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  transition: transform var(--trans-fast);
+}
+.btn-primary { background-color: var(--color-accent); color: #fff; }
+.btn-secondary { border: 2px solid var(--color-accent); color: var(--color-accent); background: transparent; }
+.btn:hover { transform: translateY(-2px); }
+
+/* 9. Grids: Features, Services, Lists ---------------------------------------------------- */
+.feature-grid, .service-grid, .blog-list, .case-list, .resource-list {
+  display: grid;
+  gap: var(--space-lg);
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  margin: var(--space-xl) 0;
+}
+
+/* 10. Card Component ---------------------------------------------------------------------- */
 .card, .list-item {
-  background: var(--card-bg);
-  border-radius: var(--radius);
-  padding: 1.5rem;
-  box-shadow: 0 4px 12px var(--card-shadow);
-  transition: transform var(--trans), box-shadow var(--trans);
+  background: var(--color-card-bg);
+  border-left: 5px solid var(--color-accent);
+  border-radius: var(--radius-md);
+  padding: var(--space-lg);
+  box-shadow: 0 4px 12px var(--color-shadow);
+  transition: transform var(--trans-fast), box-shadow var(--trans-fast);
 }
-.card:hover, .list-item:hover { transform: translateY(-6px); box-shadow: 0 8px 24px var(--card-shadow); }
-.card h3, .list-item h3 { font-size: 1.25rem; margin-bottom: 0.5rem; color: var(--accent); }
-.card p, .list-item p { font-size: var(--fz-base); line-height: var(--lh); color: var(--text); }
+.card:hover, .list-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px var(--color-shadow);
+}
+.card h3, .list-item h3 { color: var(--color-accent); margin-bottom: var(--space-sm); }
+.card p, .list-item p { color: var(--color-text); line-height: var(--line-height); }
 
-/* ======================= Consultation & About ======================= */
-.consultation .calendly-inline-widget { width: 100%; height: 600px; border-radius: var(--radius); overflow: hidden; }
-.about p { max-width: 800px; margin: 0 auto; text-align: center; }
-
-/* ======================= Modal & Overlay ======================= */
+/* 11. Modal & Overlay --------------------------------------------------------------------- */
 #infoModal {
   position: fixed;
   inset: 0;
-  background: var(--overlay);
+  background: var(--color-overlay);
   display: none;
   align-items: center;
   justify-content: center;
   z-index: 2000;
-  opacity: 0;
-  transition: opacity var(--trans);
 }
-#infoModal[aria-hidden="false"] {
-  display: flex;
-  opacity: 1;
-}
+#infoModal[aria-hidden="false"] { display: flex; }
 .modal-content {
-  background: var(--bg);
-  color: var(--text);
-  padding: 2rem;
-  border-radius: var(--radius);
+  background: var(--color-card-bg);
+  color: var(--color-text);
   width: 90%;
   max-width: 400px;
+  padding: var(--space-xl);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 8px 24px var(--color-shadow);
   position: relative;
-  box-shadow: 0 8px 20px var(--card-shadow);
 }
 .modal-close {
   position: absolute;
-  top: 1rem;
-  right: 1rem;
-  font-size: 1.5rem;
+  top: var(--space-md);
+  right: var(--space-md);
+  font-size: var(--font-size-xl);
   cursor: pointer;
-  transition: color var(--trans);
 }
-.modal-close:hover { color: var(--accent); }
+.modal-close:hover { color: var(--color-accent); }
 
-/* ======================= Back-to-Top Button ======================= */
+/* 12. Back-to-Top Button ------------------------------------------------------------------ */
 #backToTop {
   position: fixed;
-  bottom: 2rem;
-  right: 2rem;
-  background: var(--accent);
-  color: #fff;
-  border-radius: 50%;
+  bottom: var(--space-xl);
+  right: var(--space-xl);
   width: 3rem;
   height: 3rem;
+  background: var(--color-accent);
+  color: #fff;
+  border-radius: 50%;
   display: none;
   align-items: center;
   justify-content: center;
-  font-size: var(--fz-lg);
+  font-size: var(--font-size-lg);
   cursor: pointer;
-  transition: transform var(--trans);
+  transition: transform var(--trans-fast);
 }
 #backToTop.show { display: flex; }
 #backToTop:hover { transform: translateY(-3px); }
 
-/* ======================= Footer ======================= */
-footer { background: var(--nav-bg); color: #fff; text-align: center; padding: 2rem 1rem; }
-.footer-content { max-width: var(--max-w); margin: 0 auto; }
+/* 13. Consultation & About Sections ------------------------------------------------------ */
+.consultation, .about { padding: var(--space-xl) 0; }
+.consultation .container p, .about p { max-width: 800px; margin: 0 auto var(--space-xl); text-align: center; }
+.calendly-inline-widget { width: 100%; height: 630px; border-radius: var(--radius-md); }
 
-/* ======================= Responsive Tweaks ======================= */
+/* 14. Dashboard-Specific Styles ---------------------------------------------------------- */
+/* --- Wrapper & Layout --- */
+.dashboard-wrapper {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: var(--space-xl);
+  max-width: 1400px;
+  margin: var(--space-xl) auto;
+}
+
+/* --- Sidebar --- */
+.sidebar {
+  background: var(--color-nav-bg);
+  color: var(--color-nav-text);
+  padding: var(--space-lg);
+  position: sticky;
+  top: 72px;
+  height: calc(100vh - 72px);
+  overflow-y: auto;
+}
+.sidebar h2 { font-size: var(--font-size-lg); color: var(--color-accent); margin-bottom: var(--space-md); }
+.sidebar ul li a {
+  display: block;
+  padding: var(--space-sm) var(--space-md);
+  color: var(--color-nav-text);
+  border-radius: var(--radius-sm);
+  transition: background var(--trans-med), color var(--trans-med);
+}
+.sidebar ul li a:hover, .sidebar ul li a.active {
+  background: var(--color-accent);
+  color: var(--color-nav-bg);
+}
+/* Custom Scrollbar for Sidebar */
+.sidebar::-webkit-scrollbar { width: 8px; }
+.sidebar::-webkit-scrollbar-track { background: var(--color-nav-bg); }
+.sidebar::-webkit-scrollbar-thumb { background: var(--color-accent); border-radius: var(--radius-sm); }
+
+/* --- Main Panel --- */
+.dashboard-wrapper main {
+  background: var(--color-bg);
+  border-radius: var(--radius-md);
+  padding: var(--space-xl);
+  box-shadow: 0 4px 20px var(--color-shadow);
+  overflow: auto;
+}
+body.dark .dashboard-wrapper main { background: var(--color-card-bg); }
+
+/* --- Dashboard Cards & Charts --- */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: var(--space-lg);
+}
+.chart-container {
+  background: var(--color-card-bg);
+  padding: var(--space-xl);
+  border-radius: var(--radius-md);
+  box-shadow: 0 4px 20px var(--color-shadow);
+  overflow: hidden;
+}
+.chart-container canvas { width: 100% !important; height: auto !important; }
+
+/* 15. Footer ----------------------------------------------------------------------------- */
+footer {
+  background-color: var(--color-nav-bg);
+  color: var(--color-nav-text);
+  padding: var(--space-xl) 0;
+  text-align: center;
+}
+.footer-content { max-width: var(--max-width); margin: 0 auto; }
+
+/* 16. Responsive Media Queries ---------------------------------------------------------- */
+@media (max-width: 1024px) {
+  .dashboard-wrapper { grid-template-columns: 1fr; }
+  .feature-grid, .service-grid { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+}
 @media (max-width: 768px) {
   .hero { padding: 4rem 1rem; }
   .hero h1 { font-size: 2rem; }
   .hero p { font-size: 1rem; }
 }
+@media (max-width: 480px) {
+  .feature-grid, .service-grid { grid-template-columns: 1fr; }
+}
+
+/* End of style.css */
