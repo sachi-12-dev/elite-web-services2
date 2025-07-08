@@ -7,15 +7,17 @@
   --secondary-bg: #f8f8f8;
   --card-bg: #fff;
   --card-shadow: rgba(0, 0, 0, 0.05);
+  --transition: 0.3s ease;
+  --radius: 6px;
 }
 
 body.dark {
   --nav-bg: #1e1e1e;
   --background: #121212;
   --secondary-bg: #1e1e1e;
-  --text: #eeeeee;
+  --text: #eee;
   --card-bg: #1e1e1e;
-  --card-shadow: rgba(0, 0, 0, 0.2);
+  --card-shadow: rgba(0,0,0,0.2);
 }
 
 /* ======================= Reset & Base ======================= */
@@ -25,18 +27,21 @@ body.dark {
   padding: 0;
 }
 
-body {
+html {
   font-family: 'Inter', sans-serif;
+  scroll-behavior: smooth;
+}
+
+body {
   background: var(--background);
   color: var(--text);
   line-height: 1.6;
-  transition: background 0.3s ease, color 0.3s ease;
+  transition: background var(--transition), color var(--transition);
 }
 
-a { text-decoration: none; }
+a { text-decoration: none; color: inherit; }
 li { list-style: none; }
 button { font-family: inherit; cursor: pointer; background: none; border: none; }
-html { scroll-behavior: smooth; }
 
 /* ======================= Container & Sections ======================= */
 .container {
@@ -66,8 +71,8 @@ section h2 {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem;
   flex-wrap: wrap;
+  padding: 1rem;
 }
 
 .logo-container {
@@ -100,18 +105,18 @@ section h2 {
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 1.5rem;
+  gap: 1.25rem;
+  flex-wrap: wrap;
 }
 
 .nav-links a {
-  color: var(--text);
-  padding-bottom: 0.25rem;
+  padding: 0.5rem 0;
   border-bottom: 2px solid transparent;
-  transition: color 0.3s ease, border-color 0.3s ease;
+  transition: color var(--transition), border-color var(--transition);
 }
 
 .nav-links a:hover,
-.nav-links a.active {
+.nav-links .active {
   color: var(--primary);
   border-color: var(--primary);
 }
@@ -123,7 +128,7 @@ section h2 {
   border-radius: 50%;
   background: transparent;
   color: var(--primary);
-  transition: background 0.3s ease, transform 0.3s ease;
+  transition: background var(--transition), transform var(--transition);
 }
 
 .dark-toggle:hover {
@@ -131,7 +136,7 @@ section h2 {
   transform: scale(1.1);
 }
 
-/* ======================= Mobile Nav Toggle ======================= */
+/* ======================= Mobile Menu Toggle ======================= */
 .nav-toggle {
   display: none;
   padding: 0.5rem;
@@ -140,33 +145,30 @@ section h2 {
 .hamburger,
 .hamburger::before,
 .hamburger::after {
+  content: '';
+  display: block;
   width: 24px;
   height: 3px;
   background: var(--text);
-  display: block;
   border-radius: 2px;
   position: relative;
-}
-
-.hamburger::before,
-.hamburger::after {
-  content: '';
-  position: absolute;
+  transition: transform var(--transition);
 }
 
 .hamburger::before { top: -8px; }
-.hamburger::after { top: 8px; }
+.hamburger::after  { top: 8px; }
 
 @media (max-width: 768px) {
   .nav-toggle { display: flex; }
   .nav-menu { flex-direction: column; display: none; width: 100%; background: var(--nav-bg); padding: 1rem; }
   .nav-menu.open { display: flex; }
   .nav-links { flex-direction: column; width: 100%; }
+  .nav-links li + li { margin-top: 1rem; }
 }
 
 /* ======================= Hero Section ======================= */
 .hero {
-  background: linear-gradient(135deg, var(--nav-bg), var(--primary));
+  background: linear-gradient(135deg, var(--nav-bg) 0%, var(--primary) 100%);
   color: #fff;
   text-align: center;
   padding: 6rem 1rem;
@@ -189,31 +191,17 @@ section h2 {
   gap: 1rem;
 }
 
-.hero-cta .btn-primary {
-  background: var(--primary) !important;
-  color: #fff !important;
-  border: none;
-}
-
-.hero-cta .btn-secondary {
-  background: transparent !important;
-  border: 2px solid #fff !important;
-  color: #fff !important;
-}
-
 @keyframes fadeInDown {
   from { opacity: 0; transform: translateY(-20px); }
-  to { opacity: 1; transform: translateY(0); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 /* ======================= Buttons ======================= */
 .btn {
-  display: inline-block;
   padding: 0.75rem 1.5rem;
   border-radius: var(--radius);
   font-weight: 500;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  text-align: center;
+  transition: background var(--transition), transform var(--transition);
 }
 
 .btn-primary {
@@ -240,13 +228,11 @@ section h2 {
 }
 
 /* ======================= Cards & Grids ======================= */
-.card-grid,
 .feature-grid,
 .service-grid,
-.pricing-grid,
-.steps {
+.card-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
   gap: 2rem;
   margin-top: 2rem;
 }
@@ -272,27 +258,16 @@ section h2 {
   margin-bottom: 1rem;
 }
 
-/* ======================= Pagination ======================= */
-.pagination {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  margin-top: 2rem;
+/* ======================= Reveal Animation ======================= */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
-.pagination a {
-  color: var(--text);
-  padding: 0.5rem 0.75rem;
-  border: 1px solid var(--secondary-bg);
-  border-radius: var(--radius);
-  transition: background var(--transition), color var(--transition);
-}
-
-.pagination a.active,
-.pagination a:hover {
-  background: var(--primary);
-  color: #fff;
-  border-color: var(--primary);
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* ======================= Modal Overlay & Content ======================= */
@@ -305,7 +280,8 @@ section h2 {
   display: none;
   align-items: center;
   justify-content: center;
-  background: rgba(0,0,0,0.6);
+  background: rgba(0,0,0,0.4);
+  backdrop-filter: blur(4px);
   z-index: 2000;
 }
 
@@ -326,59 +302,18 @@ section h2 {
 
 .modal-close {
   position: absolute;
-  top: 1rem;
-  right: 1rem;
+  top: 0.5rem;
+  right: 0.5rem;
   font-size: 1.5rem;
   color: var(--text);
   background: none;
-  border: none;
 }
 
 .modal-close:hover {
   color: var(--primary);
 }
 
-/* ======================= Testimonials ======================= */
-.testimonial-slider {
-  display: flex;
-  overflow-x: auto;
-  gap: 1rem;
-  scroll-snap-type: x mandatory;
-}
-
-.testimonial-item {
-  min-width: 300px;
-  flex: 0 0 auto;
-  scroll-snap-align: start;
-}
-
-/* ======================= FAQ ======================= */
-.faq-item {
-  margin-bottom: 1.5rem;
-}
-
-.faq-item h4 {
-  font-size: 1.25rem;
-  margin-bottom: 0.5rem;
-  color: var(--nav-bg);
-}
-
-/* ======================= Forms & Newsletter ======================= */
-.newsletter-form {
-  display: flex;
-  max-width: 400px;
-  margin: 1rem auto;
-  gap: 0.5rem;
-}
-
-.newsletter-form input {
-  flex: 1;
-  padding: 0.75rem;
-  border: 2px solid var(--secondary-bg);
-  border-radius: var(--radius);
-}
-
-/* ======================= Back to Top Button ======================= */
+/* ======================= Back-to-Top Button ======================= */
 #backToTop {
   position: fixed;
   bottom: 2rem;
@@ -389,7 +324,7 @@ section h2 {
   border-radius: 50%;
   width: 3rem;
   height: 3rem;
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
   font-size: 1.25rem;
@@ -397,34 +332,35 @@ section h2 {
   transition: opacity var(--transition), transform var(--transition);
 }
 
+#backToTop.show {
+  display: flex;
+}
+
 #backToTop:hover {
-  opacity: 1;
   transform: translateY(-3px);
 }
 
-/* ======================= Scroll Progress Bar ======================= */
-#scrollProgress {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 0;
-  height: 4px;
-  background: var(--primary);
-  z-index: 1500;
-  transition: width 0.25s ease;
+/* ======================= Footer ======================= */
+footer {
+  background: var(--nav-bg);
+  color: #fff;
+  text-align: center;
+  padding: 2rem 1rem;
 }
 
-/* ======================= Mobile Nav Styles ======================= */
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ======================= Responsive Tweaks ======================= */
 @media (max-width: 768px) {
-  .nav-toggle.icon-btn { display: flex; }
-  .nav-menu { display: none; }
-  .nav-menu.open { display: flex; }
-  .nav-links { flex-direction: column; }
-  .nav-links li + li { margin-top: 1rem; }
+  .hero h1 { font-size: 2rem; }
+  .hero p { font-size: 1rem; }
 }
 
 /* ======================= Animations ======================= */
 @keyframes slideInUp {
   from { transform: translateY(20px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
+  to   { transform: translateY(0); opacity: 1; }
 }
