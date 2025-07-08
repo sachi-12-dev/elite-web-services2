@@ -14,7 +14,7 @@
   <!-- Main Stylesheet -->
   <link rel="stylesheet" href="style.css">
 </head>
-<body class="light">
+<body>
   <!-- Unified Navbar -->
   <header class="navbar" role="navigation" aria-label="Main Navigation">
     <div class="container navbar-content">
@@ -24,7 +24,7 @@
       </a>
       <nav class="nav-menu">
         <button class="nav-toggle icon-btn" aria-label="Toggle menu">
-          <i data-feather="menu"></i>
+          <span></span>
         </button>
         <ul class="nav-links">
           <li><a href="index.html" class="active">Home</a></li>
@@ -46,7 +46,7 @@
 
   <main>
     <!-- Hero Section -->
-    <section id="hero" class="hero">
+    <section id="hero" class="hero reveal">
       <div class="container">
         <h1>Centralized AWS Visibility &amp; Control</h1>
         <p>Unified monitoring, cost optimization, security scanning, and automation—all in one dashboard.</p>
@@ -58,7 +58,7 @@
     </section>
 
     <!-- Features Section -->
-    <section id="features" class="features">
+    <section id="features" class="features reveal">
       <div class="container">
         <h2>Mission Control Features</h2>
         <div class="feature-grid">
@@ -83,7 +83,7 @@
     </section>
 
     <!-- Services Section -->
-    <section id="services" class="services">
+    <section id="services" class="services reveal">
       <div class="container">
         <h2>Our Services</h2>
         <div class="service-grid">
@@ -108,16 +108,16 @@
     </section>
 
     <!-- Consultation Section -->
-    <section id="consultation" class="consultation">
+    <section id="consultation" class="consultation reveal">
       <div class="container">
         <h2>Book an AWS Consultation</h2>
         <p>Schedule a session to discuss your AWS needs:</p>
-        <div class="calendly-inline-widget" data-url="https://calendly.com/ibesean7/aws-consultation" style="min-width:320px;height:630px;"></div>
+        <div class="calendly-inline-widget" data-url="https://calendly.com/ibesean7/aws-consultation"></div>
       </div>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="about">
+    <section id="about" class="about reveal">
       <div class="container">
         <h2>About Us</h2>
         <p>Elite Web Services partners with you to deliver scalable, secure, and cost-effective AWS management.</p>
@@ -133,7 +133,7 @@
       <p id="modalDesc"></p>
     </div>
   </div>
-  <button id="backToTop" class="back-to-top icon-btn" aria-label="Back to Top" hidden>
+  <button id="backToTop" class="icon-btn" aria-label="Back to Top">
     <i data-feather="arrow-up"></i>
   </button>
 
@@ -145,8 +145,8 @@
   </footer>
 
   <!-- Scripts -->
-  <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
-  <script defer src="script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js" defer></script>
+  <script src="script.js" defer></script>
   <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
 </body>
 </html>
