@@ -1,79 +1,122 @@
-/* dashboard.css - Styles only for dashboard.html */
+/* style.css - Original-inspired Styling for Index, Blog, Case Studies, and Resources */
 
-/* --- Wrapper & Layout --- */
-.dashboard-wrapper {
-  display: grid;
-  grid-template-columns: 220px 1fr;
-  gap: 24px;
-  max-width: 1400px;
-  margin: 32px auto;
+/* ======================= CSS Variables ======================= */
+:root {
+  --accent: #D4AF37;
+  --nav-bg: #111;
+  --nav-text: #eee;
+  --bg: #fff;
+  --text: #333;
+  --card-bg: #fff;
+  --card-shadow: rgba(0, 0, 0, 0.06);
+  --radius: 8px;
+  --spacing: 1rem;
+}
+body.dark {
+  --bg: #1e1e1e;
+  --text: #ccc;
+  --card-bg: #2a2a2a;
+  --card-shadow: rgba(0, 0, 0, 0.2);
 }
 
-/* --- Sidebar --- */
-.sidebar {
-  background: #111;
-  color: #eee;
-  padding: 20px;
-  position: sticky;
-  top: 72px; /* matches your navbar height */
-  height: calc(100vh - 72px);
-  overflow-y: auto;
-}
-.sidebar h2 {
-  font-size: 1.4rem;
-  color: #d4af37;
-  margin-bottom: 16px;
-}
-.sidebar ul {
-  list-style: none;
+/* ======================= Reset & Base ======================= */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
   padding: 0;
 }
-.sidebar ul li a {
-  display: block;
-  padding: 8px 12px;
-  color: #ccc;
-  border-radius: 4px;
-  transition: background 0.2s ease, color 0.2s ease;
+html { scroll-behavior: smooth; font-family: 'Inter', sans-serif; }
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
 }
-.sidebar ul li a.active,
-.sidebar ul li a:hover {
-  background: #d4af37;
-  color: #111;
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+img { max-width: 100%; display: block; }
+button { background: none; border: none; cursor: pointer; }
+
+/* ======================= Navbar ======================= */
+.navbar {
+  background-color: var(--nav-bg);
+  color: var(--nav-text);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+.navbar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing);
+}
+.navbar-logo { height: 40px; margin-right: 0.5rem; }
+.brand-name { font-size: 1.5rem; font-weight: bold; color: var(--accent); }
+.nav-links { display: flex; gap: 1.5rem; }
+.nav-links a {
+  padding: 0.5rem 0;
+  transition: color 0.2s ease;
+}
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--accent);
+  position: relative;
+}
+.nav-links a:hover::after,
+.nav-links a.active::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--accent);
 }
 
-/* --- Main Panel --- */
-.dashboard-wrapper main {
-  background: white;
-  border-radius: 12px;
-  padding: 32px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+/* ======================= Hero CTA ======================= */
+.hero-cta {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing);
+  margin-top: var(--spacing);
 }
-body.dark .dashboard-wrapper main {
-  background: #1e1e1e;
+.btn {
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius);
+  font-weight: 600;
+  transition: transform 0.2s ease;
+}
+.btn-primary {
+  background: var(--accent);
+  color: #fff;
+}
+.btn-secondary {
+  background: transparent;
+  border: 2px solid var(--accent);
+  color: var(--accent);
+}
+.btn-primary:hover,
+.btn-secondary:hover {
+  transform: translateY(-2px);
 }
 
-/* --- Section Titles --- */
-.features h2 {
-  font-size: 1.8rem;
-  margin-bottom: 24px;
-  color: #222;
-}
-body.dark .features h2 {
-  color: #d4af37;
-}
-
-/* --- Card Grid & Cards --- */
-.card-grid {
+/* ======================= Feature & Service Grids ======================= */
+.feature-grid,
+.service-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 24px;
+  gap: 1.5rem;
+  margin: 2rem 0;
 }
+
+/* ======================= Card Styling ======================= */
 .card {
-  background: white;
-  border-left: 5px solid #d4af37;
-  border-radius: 8px;
-  padding: 20px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+  background: var(--card-bg);
+  border-left: 5px solid var(--accent);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px var(--card-shadow);
   transition: transform 0.2s ease;
 }
 .card:hover {
@@ -81,43 +124,62 @@ body.dark .features h2 {
 }
 .card h3 {
   font-size: 1.1rem;
-  margin-bottom: 8px;
-  color: #d4af37;
+  margin-bottom: 0.5rem;
+  color: var(--accent);
 }
 .card p {
   font-size: 1rem;
-  color: #444;
-}
-body.dark .card {
-  background: #2a2a2a;
-  color: #ccc;
+  color: var(--text);
 }
 
-/* --- Chart Containers --- */
-.chart-container {
-  background: white;
-  padding: 24px;
-  border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-  margin-top: 16px;
+/* ======================= List Items (Blog, Case, Resources) ======================= */
+.blog-list,
+.case-list,
+.resource-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
 }
-body.dark .chart-container {
-  background: #2a2a2a;
+.list-item {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px var(--card-shadow);
+  transition: transform 0.2s ease;
 }
-.chart-container canvas {
-  width: 100% !important;
-  height: auto !important;
+.list-item:hover {
+  transform: translateY(-4px);
+}
+.list-item h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  color: var(--accent);
+}
+.list-item p {
+  font-size: 1rem;
+  color: var(--text);
 }
 
-/* --- Mobile Responsiveness --- */
+/* ======================= Consultation & About ======================= */
+.calendly-inline-widget { width: 100%; height: 630px; border-radius: var(--radius); overflow: hidden; }
+.about p { max-width: 800px; margin: 0 auto; text-align: center; }
+
+/* ======================= Modal & Back-to-Top ======================= */
+.modal { display: none; }
+#infoModal[aria-hidden="false"] { display: flex !important; }
+.back-to-top { display: none; }
+
+/* ======================= Footer ======================= */
+footer {
+  background: var(--nav-bg);
+  color: var(--nav-text);
+  text-align: center;
+  padding: 2rem 0;
+}
+
+/* ======================= Responsive Adjustments ======================= */
 @media (max-width: 768px) {
-  .dashboard-wrapper {
-    grid-template-columns: 1fr;
-  }
-  .sidebar {
-    display: none;
-  }
-  .dashboard-wrapper main {
-    padding: 20px;
-  }
+  .nav-links { display: none; }
+  .nav-menu.open .nav-links { display: flex; flex-direction: column; gap: 1rem; }
 }
