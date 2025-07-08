@@ -1,90 +1,100 @@
-<!-- blog.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Blog | Elite Web Services</title>
-  <link rel="stylesheet" href="style.css" />
-  <script defer src="script.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <meta name="description" content="Insights and best practices on AWS architecture, cost optimization, security, and more from Elite Web Services.">
 </head>
 <body>
-  <!-- Optimized Navbar: streamlined links, dark-mode toggle, and mobile menu -->
-<header class="navbar" role="navigation" aria-label="Main Navigation">
-  <div class="container navbar-content">
-    <a href="index.html" class="logo-container">
-      <img src="assets/logo.png" alt="Elite Web Services Logo" class="navbar-logo">
-      <span class="brand-name">Elite Web Services</span>
-    </a>
-    <div class="nav-actions-wrap">
-      <nav class="nav-menu">
-        <ul class="nav-links">
-          <li><a href="index.html" class="active">Home</a></li>
-          <li><a href="#features">Features</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="case-studies.html">Case Studies</a></li>
-          <li><a href="blog.html">Blog</a></li>
-          <li><a href="#consultation">Consultation</a></li>
-          <li><a href="#about">About</a></li>
-        </ul>
-      </nav>
-      <button class="dark-toggle" aria-label="Toggle Dark Mode">🌙</button>
-      <button class="nav-toggle icon-btn" aria-label="Toggle menu">
-        <span class="hamburger"></span>
-      </button>
-    </div>
-  </div>
-</header>
-
-
-  <main class="container">
-    <section class="blog-list reveal">
-      <h2>Latest Articles</h2>
-      <div class="card-grid">
-        <article class="card" data-title="Zero Trust in Healthcare Cloud" data-details="Learn how to implement zero-trust models and maintain HIPAA/GDPR compliance on AWS environments with continuous monitoring and automated response workflows.">
-          <img src="assets/blog-zero-trust.jpg" alt="Zero Trust in Healthcare" class="card-img" />
-          <h3>Zero Trust in Healthcare Cloud</h3>
-          <p>Implement zero-trust models and maintain HIPAA/GDPR compliance on AWS with automated monitoring.</p>
-          <a href="blog/zero-trust-healthcare.html" class="btn btn-secondary">Read More →</a>
-        </article>
-
-        <article class="card" data-title="Scaling eCommerce for Black Friday" data-details="Discover how we architected a scalable, fault-tolerant AWS solution that handled 10× traffic surge with zero downtime using auto-scaling, caching, and rate-limiting strategies.">
-          <img src="assets/blog-black-friday.jpg" alt="Scaling eCommerce" class="card-img" />
-          <h3>Scaling eCommerce for Black Friday</h3>
-          <p>Architected an AWS solution to handle 10× traffic surge with zero downtime.</p>
-          <a href="blog/scaling-ecommerce.html" class="btn btn-secondary">Read More →</a>
-        </article>
-
-        <article class="card" data-title="Cost Optimization Best Practices" data-details="A comprehensive walkthrough on identifying and eliminating idle AWS resources, rightsizing instances, and using savings plans to shave 30% off your monthly bill.">
-          <img src="assets/blog-cost-optimization.jpg" alt="Cost Optimization" class="card-img" />
-          <h3>Cost Optimization Best Practices</h3>
-          <p>Shave 30% off your AWS bill by eliminating waste and rightsizing resources.</p>
-          <a href="blog/cost-optimization.html" class="btn btn-secondary">Read More →</a>
-        </article>
-
-        <article class="card" data-title="Automating Security Alerts with Lambda" data-details="Learn how to wire AWS Config, CloudWatch, and Lambda together to auto-remediate common security misconfigurations within minutes of detection.">
-          <img src="assets/blog-security-automation.jpg" alt="Security Automation" class="card-img" />
-          <h3>Automating Security Alerts with Lambda</h3>
-          <p>Auto-remediate security misconfigurations within minutes of detection.</p>
-          <a href="blog/security-automation.html" class="btn btn-secondary">Read More →</a>
-        </article>
+  <!-- Unified Navbar -->
+  <header class="navbar" role="navigation" aria-label="Main Navigation">
+    <div class="container navbar-content">
+      <a href="index.html" class="logo-container">
+        <img src="assets/logo.png" alt="Elite Web Services Logo" class="navbar-logo">
+        <span class="brand-name">Elite Web Services</span>
+      </a>
+      <div class="nav-actions-wrap">
+        <nav class="nav-menu">
+          <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="blog.html" class="active">Blog</a></li>
+            <li><a href="case-studies.html">Case Studies</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="#consultation">Consultation</a></li>
+            <li><a href="#about">About</a></li>
+          </ul>
+        </nav>
+        <button class="dark-toggle" aria-label="Toggle Dark Mode">🌙</button>
+        <button class="nav-toggle icon-btn" aria-label="Toggle menu">
+          <span class="hamburger"></span>
+        </button>
       </div>
+    </div>
+  </header>
 
-      <!-- Simple Pagination -->
-      <div class="pagination">
-        <a href="#" class="prev">&laquo; Newer</a>
-        <a href="#" class="page active">1</a>
-        <a href="#" class="page">2</a>
-        <a href="#" class="page">3</a>
-        <a href="#" class="next">Older &raquo;</a>
+  <main>
+    <section class="blog-list reveal">
+      <div class="container">
+        <h2>Latest Articles</h2>
+        <div class="card-grid">
+          <article class="card" data-title="Zero Trust in Healthcare Cloud" data-details="Learn how to implement Zero Trust models on AWS for HIPAA-compliant healthcare applications, leveraging IAM, AWS WAF, and continuous monitoring.">
+            <img src="assets/blog-zero-trust.jpg" alt="Zero Trust in Healthcare" class="card-img">
+            <h3>Zero Trust in Healthcare Cloud</h3>
+            <p>Implement Zero Trust on AWS to secure healthcare workloads and ensure compliance.</p>
+            <a href="blog/zero-trust-healthcare.html" class="btn btn-secondary">Read More →</a>
+          </article>
+          <article class="card" data-title="Scaling eCommerce for Black Friday" data-details="Discover strategies for architecting auto-scaling, fault-tolerant AWS solutions to handle massive traffic spikes with zero downtime.">
+            <img src="assets/blog-black-friday.jpg" alt="Scaling eCommerce" class="card-img">
+            <h3>Scaling eCommerce for Black Friday</h3>
+            <p>Learn how to architect AWS solutions that seamlessly scale during peak shopping events.</p>
+            <a href="blog/scaling-ecommerce.html" class="btn btn-secondary">Read More →</a>
+          </article>
+          <article class="card" data-title="Cost Optimization Best Practices" data-details="Uncover techniques for rightsizing, savings plans, and identifying idle resources to cut AWS costs by over 30%.">
+            <img src="assets/blog-cost-optimization.jpg" alt="Cost Optimization" class="card-img">
+            <h3>Cost Optimization Best Practices</h3>
+            <p>Reduce your AWS bill by leveraging rightsizing, savings plans, and resource cleanup.</p>
+            <a href="blog/cost-optimization.html" class="btn btn-secondary">Read More →</a>
+          </article>
+          <article class="card" data-title="Automating Security Alerts with Lambda" data-details="Learn to integrate AWS Config, CloudWatch Events, and Lambda for real-time automated remediation of security findings.">
+            <img src="assets/blog-security-automation.jpg" alt="Security Automation" class="card-img">
+            <h3>Automating Security Alerts with Lambda</h3>
+            <p>Automate responses to security misconfigurations using AWS Lambda and CloudWatch.</p>
+            <a href="blog/security-automation.html" class="btn btn-secondary">Read More →</a>
+          </article>
+        </div>
+
+        <!-- Pagination -->
+        <div class="pagination">
+          <a href="#" class="prev">&laquo; Newer</a>
+          <a href="#" class="page active">1</a>
+          <a href="#" class="page">2</a>
+          <a href="#" class="page">3</a>
+          <a href="#" class="next">Older &raquo;</a>
+        </div>
       </div>
     </section>
   </main>
 
+  <!-- Shared Modal & Back-to-Top -->
+  <div id="infoModal" class="modal" aria-hidden="true">
+    <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" aria-label="Close">&times;</button>
+      <h3 id="modalTitle"></h3>
+      <p id="modalDesc"></p>
+    </div>
+  </div>
+  <button id="backToTop" aria-label="Back to Top">↑</button>
+
+  <!-- Footer -->
   <footer>
     <div class="container footer-content">
       <p>&copy; 2025 Elite Web Services. All rights reserved.</p>
     </div>
   </footer>
+
+  <!-- Scripts -->
+  <script src="script.js" defer></script>
 </body>
 </html>
