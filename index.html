@@ -7,7 +7,7 @@
   <meta name="description" content="Centralized AWS visibility, cost optimization, and security monitoring via our MCC-Lite dashboard." />
 
   <!-- FAVICON -->
-  <link rel="icon" href="assets/favicon.ico" />
+  <link rel="icon" href="{{ url_for('static', filename='assets/favicon.ico') }}" />
 
   <!-- GOOGLE FONTS -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -15,41 +15,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
 
   <!-- STYLESHEET -->
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
 </head>
 <body>
-
   <!-- NAVBAR -->
-  <header class="navbar">
-    <div class="container navbar-content">
-      <a href="index.html" class="logo-container">
-        <img src="assets/logo.png" alt="Elite Web Services Logo" class="navbar-logo" loading="lazy" />
-        <span class="brand-name">Elite Web Services</span>
-      </a>
-
-      <nav class="nav-menu">
-        <button class="nav-toggle icon-btn" aria-label="Toggle menu" aria-expanded="false">
-          <i data-feather="menu"></i>
-        </button>
-        <ul class="nav-links">
-          <li><a href="index.html" class="active">Home</a></li>
-          <li><a href="#features">Features</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="case-studies.html">Case Studies</a></li>
-          <li><a href="blog.html">Blog</a></li>
-          <li><a href="resources.html">Resources</a></li>
-          <li><a href="#consultation">Consultation</a></li>
-          <li><a href="#about">About</a></li>
-        </ul>
-      </nav>
-
-      <div class="nav-actions-wrap">
-        <button id="darkToggle" class="dark-toggle icon-btn" aria-label="Toggle Dark Mode">
-          <i data-feather="moon"></i>
-        </button>
-      </div>
-    </div>
-  </header>
+  {% include 'navbar.html' %}
 
   <!-- HERO -->
   <section id="hero" class="hero reveal">
@@ -58,7 +28,7 @@
       <p>Unified monitoring, cost optimization, security scanning, and automation—all in one dashboard.</p>
       <div class="hero-cta">
         <a href="#features" class="btn btn-primary">Learn More</a>
-        <a href="dashboard.html" class="btn btn-secondary">Sign In</a>
+        <a href="{{ url_for('dashboard') }}" class="btn btn-secondary">Sign In</a>
       </div>
     </div>
   </section>
@@ -118,10 +88,7 @@
     <div class="container">
       <h2>Book an AWS Consultation</h2>
       <p>Schedule a session to discuss your AWS needs:</p>
-      <div class="calendly-inline-widget"
-           data-url="https://calendly.com/ibesean7/aws-consultation"
-           style="min-width:320px;height:630px;">
-      </div>
+      <div class="calendly-inline-widget" data-url="https://calendly.com/ibesean7/aws-consultation" style="min-width:320px;height:630px;"></div>
     </div>
   </section>
 
@@ -133,32 +100,31 @@
     </div>
   </section>
 
-  <!-- MODAL -->
-  <div id="infoModal" class="modal" aria-hidden="true">
-    <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-      <button class="modal-close icon-btn" aria-label="Close">
-        <i data-feather="x"></i>
-      </button>
-      <h3 id="modalTitle">Modal Title</h3>
-      <p id="modalDesc">Modal content goes here.</p>
+  <!-- LATEST BLOG PREVIEWS -->
+  <section class="latest-posts reveal">
+    <div class="container">
+      <h2>From Our Blog</h2>
+      <div class="card-grid">
+        {% for post in posts[:3] %}
+        <article class="card" data-title="{{ post.title }}" data-details="{{ post.excerpt }}">
+          <h3>{{ post.title }}</h3>
+          <p>{{ post.excerpt }}</p>
+          <a href="{{ url_for('view_post', post_id=post.id) }}" class="btn btn-secondary">Read More →</a>
+        </article>
+        {% endfor %}
+      </div>
     </div>
-  </div>
+  </section>
 
-  <!-- BACK TO TOP -->
-  <button id="backToTop" aria-label="Back to Top" class="icon-btn reveal">
-    <i data-feather="arrow-up"></i>
-  </button>
+  <!-- SHARED: MODAL & BACK-TO-TOP -->
+  {% include 'modal.html' %}
+  {% include 'back_to_top.html' %}
 
   <!-- FOOTER -->
-  <footer class="reveal">
-    <div class="container">
-      <p>&copy; 2025 Elite Web Services. All rights reserved.</p>
-    </div>
-  </footer>
+  {% include 'footer.html' %}
 
   <!-- SCRIPTS -->
   <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js" defer></script>
-  <script src="https://assets.calendly.com/assets/external/widget.js" async defer></script>
-  <script src="main.js" defer></script>
+  <script src="{{ url_for('static', filename='main.js') }}" defer></script>
 </body>
 </html>
