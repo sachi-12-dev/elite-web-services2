@@ -1,97 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Resources | Elite Web Services</title>
-  <link rel="stylesheet" href="style.css">
-  <meta name="description" content="Handpicked AWS guides, whitepapers, tools, and tutorials from Elite Web Services to accelerate your cloud journey.">
+  <meta name="description" content="Handpicked AWS guides, whitepapers, tools, and tutorials from Elite Web Services to accelerate your cloud journey." />
+
+  <!-- FAVICON -->
+  <link rel="icon" href="{{ url_for('static', filename='assets/favicon.ico') }}" />
+
+  <!-- GOOGLE FONTS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <!-- STYLESHEET -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
 </head>
 <body>
-  <!-- Unified Navbar -->
- <header class="navbar">
-  <div class="container navbar-content">
-    <a href="index.html" class="logo-container">
-      <img src="assets/logo.png" alt="Elite Web Services Logo" class="navbar-logo" />
-      <span class="brand-name">Elite Web Services</span>
-    </a>
-    <nav class="nav-menu">
-      <button class="nav-toggle icon-btn" aria-label="Toggle menu" aria-expanded="false">
-        <i data-feather="menu"></i>
-      </button>
-      <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="#features">Features</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="case-studies.html">Case Studies</a></li>
-        <li><a href="blog.html" class="active">Blog</a></li>
-        <li><a href="resources.html">Resources</a></li>
-        <li><a href="#consultation">Consultation</a></li>
-        <li><a href="#about">About</a></li>
-      </ul>
-    </nav>
-    <div class="nav-actions-wrap">
-      <button id="darkToggle" class="dark-toggle icon-btn" aria-label="Toggle Dark Mode">
-        <i data-feather="moon"></i>
-      </button>
-    </div>
-  </div>
-</header>
+  <!-- NAVBAR -->
+  {% include 'navbar.html' %}
 
+  <!-- RESOURCES LIST -->
+  <main>
     <section id="resources" class="resources-list reveal">
       <div class="container">
         <h2>Resources</h2>
         <div class="card-grid">
-          <div class="card" data-title="AWS Well-Architected Framework" data-details="Dive into the AWS best practices for building secure, high-performing, resilient, and efficient infrastructure for your applications.">
-            <img src="assets/res-aws-waf.jpg" alt="AWS Well-Architected Framework" class="card-img">
-            <h3>AWS Well-Architected Framework</h3>
-            <p>Best practices for architecting on AWS.</p>
-            <a href="https://aws.amazon.com/architecture/well-architected/" target="_blank" class="btn btn-secondary">View →</a>
-          </div>
-
-          <div class="card" data-title="AWS Cost Optimization Whitepaper" data-details="Strategies and recommendations to help you optimize costs across your AWS environment and reduce your monthly bill.">
-            <img src="assets/res-cost-optimization.jpg" alt="AWS Cost Optimization Whitepaper" class="card-img">
-            <h3>Cost Optimization Whitepaper</h3>
-            <p>Cut your AWS spend with proven techniques.</p>
-            <a href="https://d1.awsstatic.com/whitepapers/aws-cost-optimization.pdf" target="_blank" class="btn btn-secondary">Download →</a>
-          </div>
-
-          <div class="card" data-title="AWS Security Best Practices" data-details="Comprehensive guide to securing your AWS workloads, covering identity, detection, infrastructure, data protection, and incident response.">
-            <img src="assets/res-security-best-practices.jpg" alt="AWS Security Best Practices" class="card-img">
-            <h3>Security Best Practices</h3>
-            <p>Secure your AWS environment end-to-end.</p>
-            <a href="https://d1.awsstatic.com/whitepapers/aws-security-best-practices.pdf" target="_blank" class="btn btn-secondary">Download →</a>
-          </div>
-
-          <div class="card" data-title="AWS Architecture Center" data-details="Explore reference architectures, patterns, and best practices for building on AWS, maintained by AWS solutions architects.">
-            <img src="assets/res-arch-center.jpg" alt="AWS Architecture Center" class="card-img">
-            <h3>Architecture Center</h3>
-            <p>Official AWS reference architectures & patterns.</p>
-            <a href="https://aws.amazon.com/architecture/" target="_blank" class="btn btn-secondary">Explore →</a>
-          </div>
+          {% for res in resources %}
+          <article class="card" data-title="{{ res.title }}" data-details="{{ res.details }}">
+            <h3>{{ res.title }}</h3>
+            <p>{{ res.summary }}</p>
+            <a href="{{ res.url }}" target="_blank" class="btn btn-secondary">{{ res.cta_text }} →</a>
+          </article>
+          {% else %}
+          <p>No resources available at this time.</p>
+          {% endfor %}
         </div>
       </div>
     </section>
   </main>
 
-  <!-- Shared Modal & Back-to-Top -->
-  <div id="infoModal" class="modal" aria-hidden="true">
-    <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-      <button class="modal-close" aria-label="Close">&times;</button>
-      <h3 id="modalTitle"></h3>
-      <p id="modalDesc"></p>
-    </div>
-  </div>
-  <button id="backToTop" aria-label="Back to Top">↑</button>
+  <!-- SHARED MODAL & BACK-TO-TOP -->
+  {% include 'modal.html' %}
+  {% include 'back_to_top.html' %}
 
-  <!-- Footer -->
-  <footer>
-    <div class="container footer-content">
-      <p>&copy; 2025 Elite Web Services. All rights reserved.</p>
-    </div>
-  </footer>
+  <!-- FOOTER -->
+  {% include 'footer.html' %}
 
-  <!-- Scripts -->
-  <script src="script.js" defer></script>
+  <!-- SCRIPTS -->
+  <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js" defer></script>
+  <script src="{{ url_for('static', filename='main.js') }}" defer></script>
 </body>
 </html>
