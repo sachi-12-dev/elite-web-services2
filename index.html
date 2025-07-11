@@ -2,25 +2,37 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Elite Web Services | AWS Cloud Solutions</title>
   <meta name="description" content="Centralized AWS visibility, cost optimization, and security monitoring via our MCC-Lite dashboard." />
+  <meta property="og:title" content="Elite Web Services | AWS Cloud Solutions" />
+  <meta property="og:description" content="Centralized AWS visibility, cost optimization, and security monitoring via our MCC-Lite dashboard." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.elitewebservices.net/" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Elite Web Services | AWS Cloud Solutions" />
+  <meta name="twitter:description" content="Centralized AWS visibility, cost optimization, and security monitoring via our MCC-Lite dashboard." />
   <link rel="icon" href="assets/favicon.ico" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lucide-static@0.0.39/dist/lucide.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lucide-static@0.0.39/dist/lucide.css" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body class="light">
+
   <!-- Navbar -->
   <header class="navbar">
     <div class="container navbar-content">
       <a href="index.html" class="logo-container">
-        <img src="assets/logo.png" alt="Elite Web Services Logo" class="navbar-logo" />
+        <img src="assets/logo.png" alt="Elite Web Services Logo" class="navbar-logo" loading="lazy" />
         <span class="brand-name">Elite Web Services</span>
       </a>
       <nav class="nav-menu">
-        <button class="nav-toggle icon-btn" aria-label="Toggle menu"><i data-feather="menu"></i></button>
+        <button class="nav-toggle icon-btn" aria-label="Toggle menu" aria-expanded="false">
+          <i data-feather="menu"></i>
+        </button>
         <ul class="nav-links">
           <li><a href="index.html" class="active">Home</a></li>
           <li><a href="#features">Features</a></li>
@@ -121,7 +133,9 @@
   <!-- Modal -->
   <div id="infoModal" class="modal" aria-hidden="true">
     <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-      <button class="modal-close icon-btn" aria-label="Close"><i data-feather="x"></i></button>
+      <button class="modal-close icon-btn" aria-label="Close">
+        <i data-feather="x"></i>
+      </button>
       <h3 id="modalTitle">Modal Title</h3>
       <p id="modalDesc">Modal content goes here.</p>
     </div>
@@ -142,6 +156,6 @@
   <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
   <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
-  <!-- No custom script.js yet to preserve minimal setup -->
+  <script src="main.js"></script>
 </body>
 </html>
