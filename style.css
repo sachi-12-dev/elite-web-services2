@@ -17,7 +17,7 @@ body.dark {
   --secondary-bg: #1e1e1e;
   --text: #eee;
   --card-bg: #1e1e1e;
-  --card-shadow: rgba(0,0,0,0.2);
+  --card-shadow: rgba(0, 0, 0, 0.2);
 }
 
 /* ======================= Reset & Base ======================= */
@@ -83,8 +83,8 @@ section h2 {
 
 .navbar-content {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: flex-start;  /* logo + links hug the left */
   flex-wrap: wrap;
   max-width: 1200px;
   margin: 0 auto;
@@ -107,14 +107,10 @@ section h2 {
   color: var(--primary);
 }
 
-.nav-actions-wrap {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
 .nav-menu {
   display: flex;
+  align-items: center;
+  gap: 1.5rem;
 }
 
 .nav-links {
@@ -130,13 +126,13 @@ section h2 {
   transition: color var(--transition);
 }
 
-.nav-links a.active,
-.nav-links a:hover {
+.nav-links a:hover,
+.nav-links a.active {
   color: var(--primary);
 }
 
-.nav-links a.active::after,
-.nav-links a:hover::after {
+.nav-links a:hover::after,
+.nav-links a.active::after {
   content: '';
   position: absolute;
   bottom: -4px;
@@ -144,6 +140,13 @@ section h2 {
   width: 100%;
   height: 2px;
   background: var(--primary);
+}
+
+.nav-actions-wrap {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-left: auto;            /* pushes toggles to the far right */
 }
 
 /* ======================= Dark Mode Toggle ======================= */
@@ -156,7 +159,7 @@ section h2 {
 }
 
 .dark-toggle:hover {
-  background: rgba(212,175,55,0.1);
+  background: rgba(212, 175, 55, 0.1);
   transform: scale(1.1);
 }
 
@@ -176,7 +179,6 @@ section h2 {
   background: var(--text);
   border-radius: 2px;
   position: relative;
-  transition: transform var(--transition);
 }
 
 .hamburger::before { top: -8px; }
@@ -197,7 +199,9 @@ section h2 {
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     display: none;
   }
-  .nav-menu.open {
+  /* support both .open and .active toggles */
+  .nav-menu.open,
+  .nav-menu.active {
     display: flex;
   }
   .nav-links {
@@ -319,10 +323,7 @@ section h2 {
 /* ======================= Modal ======================= */
 .modal {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
+  inset: 0;
   display: none;
   align-items: center;
   justify-content: center;
@@ -400,7 +401,5 @@ footer {
 /* ======================= Responsive ======================= */
 @media (max-width: 768px) {
   .hero h1 { font-size: 2rem; }
-  .hero p { font-size: 1rem; }
+  .hero p  { font-size: 1rem; }
 }
-
-
