@@ -71,7 +71,7 @@ section h2 {
   color: var(--text);
 }
 
-/* ======================= Navbar (Unified) ======================= */
+/* ======================= Navbar ======================= */
 .navbar {
   background: var(--nav-bg);
   box-shadow: 0 2px 6px var(--card-shadow);
@@ -86,8 +86,6 @@ section h2 {
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  max-width: 1200px;
-  margin: 0 auto;
   padding: 1rem;
 }
 
@@ -125,7 +123,6 @@ section h2 {
 .nav-links a {
   position: relative;
   padding: 0.5rem 0;
-  color: var(--text);
   font-weight: 500;
   transition: color var(--transition);
 }
@@ -160,27 +157,11 @@ section h2 {
   transform: scale(1.1);
 }
 
-/* ======================= Mobile Menu Toggle ======================= */
+/* ======================= Mobile Menu ======================= */
 .nav-toggle {
   display: none;
   padding: 0.5rem;
 }
-
-.hamburger,
-.hamburger::before,
-.hamburger::after {
-  content: '';
-  display: block;
-  width: 24px;
-  height: 3px;
-  background: var(--text);
-  border-radius: 2px;
-  position: relative;
-  transition: transform var(--transition);
-}
-
-.hamburger::before { top: -8px; }
-.hamburger::after  { top: 8px; }
 
 @media (max-width: 768px) {
   .nav-toggle {
@@ -197,7 +178,7 @@ section h2 {
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     display: none;
   }
-  .nav-menu.open {
+  .nav-menu.active {
     display: flex;
   }
   .nav-links {
@@ -217,23 +198,16 @@ section h2 {
 .hero h1 {
   font-size: 2.75rem;
   margin-bottom: 1rem;
-  animation: fadeInDown 1s ease-out both;
 }
 
 .hero p {
   font-size: 1.25rem;
   margin-bottom: 2rem;
-  animation: fadeInDown 1.2s ease-out both;
 }
 
 .hero-cta {
   display: inline-flex;
   gap: 1rem;
-}
-
-@keyframes fadeInDown {
-  from { opacity: 0; transform: translateY(-20px); }
-  to   { opacity: 1; transform: translateY(0); }
 }
 
 /* ======================= Buttons ======================= */
@@ -266,10 +240,9 @@ section h2 {
   transform: translateY(-2px);
 }
 
-/* ======================= Cards & Grids ======================= */
+/* ======================= Grids & Cards ======================= */
 .feature-grid,
-.service-grid,
-.card-grid {
+.service-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 2rem;
@@ -277,8 +250,6 @@ section h2 {
 }
 
 .card {
-  display: flex;
-  flex-direction: column;
   background: var(--card-bg);
   border-left: 5px solid var(--primary);
   border-radius: var(--radius);
@@ -292,37 +263,10 @@ section h2 {
   box-shadow: 0 8px 24px var(--card-shadow);
 }
 
-.card-img {
-  width: 100%;
-  height: auto;
-  border-radius: var(--radius);
-  margin-bottom: 1rem;
-}
-
-.card .btn {
-  margin-top: auto;
-  width: 100%;
-}
-
-/* ======================= Reveal Animation ======================= */
-.reveal {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-}
-
-.reveal.active {
-  opacity: 1;
-  transform: translateY(0);
-}
-
 /* ======================= Modal ======================= */
 .modal {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
+  inset: 0;
   display: none;
   align-items: center;
   justify-content: center;
@@ -358,7 +302,7 @@ section h2 {
   color: var(--primary);
 }
 
-/* ======================= Back-to-Top ======================= */
+/* ======================= Back to Top ======================= */
 #backToTop {
   position: fixed;
   bottom: 2rem;
@@ -392,12 +336,7 @@ footer {
   padding: 2rem 1rem;
 }
 
-.footer-content {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-/* ======================= Responsive ======================= */
+/* ======================= Responsive adjustments ======================= */
 @media (max-width: 768px) {
   .hero h1 { font-size: 2rem; }
   .hero p { font-size: 1rem; }
