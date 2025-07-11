@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{ post.title }} | Elite Web Services</title>
+  <meta name="description" content="{{ post.excerpt }}" />
+
+  <!-- FAVICON -->
+  <link rel="icon" href="{{ url_for('static', filename='assets/favicon.ico') }}" />
+
+  <!-- GOOGLE FONTS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <!-- STYLESHEET -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body>
+  <!-- NAVBAR -->
+  {% include 'navbar.html' %}
+
+  <!-- POST CONTENT -->
+  <main>
+    <section class="post-content reveal">
+      <div class="container">
+        <h1>{{ post.title }}</h1>
+        <p class="post-date">Published on {{ post.created_at.strftime('%B %d, %Y') }}</p>
+        <article class="content">
+          {{ post.content | safe }}
+        </article>
+        <a href="{{ url_for('blog') }}" class="btn btn-secondary" style="margin-top:1rem;">← Back to Blog</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- SHARED: MODAL & BACK-TO-TOP -->
+  {% include 'modal.html' %}
+  {% include 'back_to_top.html' %}
+
+  <!-- FOOTER -->
+  {% include 'footer.html' %}
+
+  <!-- SCRIPTS -->
+  <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js" defer></script>
+  <script src="{{ url_for('static', filename='main.js') }}" defer></script>
+</body>
+</html>
