@@ -81,10 +81,10 @@ section h2 {
 
 .navbar-content {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
+  justify-content: flex-start; 
   padding: 1rem;
+  
 }
 
 .logo-container {
@@ -140,6 +140,7 @@ section h2 {
   display: flex;
   align-items: center;
   gap: 1rem;
+  margin-left: auto;           
 }
 
 /* ======================= Dark Mode Toggle ======================= */
@@ -221,9 +222,7 @@ section h2 {
 }
 
 /* ======================= Cards ======================= */
-.card-grid,
-.feature-grid,
-.service-grid {
+.card-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 2rem;
