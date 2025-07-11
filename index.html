@@ -3,20 +3,23 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Elite Web Services | AWS Cloud Solutions</title>
   <meta name="description" content="Centralized AWS visibility, cost optimization, and security monitoring via our MCC-Lite dashboard." />
-  <!-- Open Graph & Twitter tags omitted for brevity -->
+
+  <!-- FAVICON -->
   <link rel="icon" href="assets/favicon.ico" />
+
+  <!-- GOOGLE FONTS -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lucide-static@0.0.39/dist/lucide.css" />
+
+  <!-- STYLESHEET -->
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <!-- Navbar -->
+  <!-- NAVBAR -->
   <header class="navbar">
     <div class="container navbar-content">
       <a href="index.html" class="logo-container">
@@ -24,8 +27,10 @@
         <span class="brand-name">Elite Web Services</span>
       </a>
 
-      <!-- Links -->
       <nav class="nav-menu">
+        <button class="nav-toggle icon-btn" aria-label="Toggle menu" aria-expanded="false">
+          <i data-feather="menu"></i>
+        </button>
         <ul class="nav-links">
           <li><a href="index.html" class="active">Home</a></li>
           <li><a href="#features">Features</a></li>
@@ -38,11 +43,7 @@
         </ul>
       </nav>
 
-      <!-- Toggles (mobile menu + dark mode) -->
       <div class="nav-actions-wrap">
-        <button class="nav-toggle icon-btn" aria-label="Toggle menu" aria-expanded="false">
-          <i data-feather="menu"></i>
-        </button>
         <button id="darkToggle" class="dark-toggle icon-btn" aria-label="Toggle Dark Mode">
           <i data-feather="moon"></i>
         </button>
@@ -50,7 +51,7 @@
     </div>
   </header>
 
-  <!-- Hero -->
+  <!-- HERO -->
   <section id="hero" class="hero">
     <div class="container">
       <h1>Centralized AWS Visibility &amp; Control</h1>
@@ -62,7 +63,7 @@
     </div>
   </section>
 
-  <!-- Features -->
+  <!-- FEATURES -->
   <section id="features" class="features">
     <div class="container">
       <h2>Mission Control Features</h2>
@@ -87,7 +88,7 @@
     </div>
   </section>
 
-  <!-- Services -->
+  <!-- SERVICES -->
   <section id="services" class="services">
     <div class="container">
       <h2>Our Services</h2>
@@ -112,17 +113,19 @@
     </div>
   </section>
 
-  <!-- Consultation -->
+  <!-- CONSULTATION -->
   <section id="consultation" class="consultation">
     <div class="container">
       <h2>Book an AWS Consultation</h2>
       <p>Schedule a session to discuss your AWS needs:</p>
-      <div class="calendly-inline-widget" data-url="https://calendly.com/ibesean7/aws-consultation"
-           style="min-width:320px;height:630px;"></div>
+      <div class="calendly-inline-widget"
+           data-url="https://calendly.com/ibesean7/aws-consultation"
+           style="min-width:320px;height:630px;">
+      </div>
     </div>
   </section>
 
-  <!-- About -->
+  <!-- ABOUT -->
   <section id="about" class="about">
     <div class="container">
       <h2>About Us</h2>
@@ -130,7 +133,7 @@
     </div>
   </section>
 
-  <!-- Modal -->
+  <!-- MODAL -->
   <div id="infoModal" class="modal" aria-hidden="true">
     <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
       <button class="modal-close icon-btn" aria-label="Close">
@@ -141,12 +144,19 @@
     </div>
   </div>
 
-  <!-- Back to Top -->
+  <!-- BACK TO TOP -->
   <button id="backToTop" aria-label="Back to Top">
     <i data-feather="arrow-up"></i>
   </button>
 
-  <!-- Scripts -->
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Elite Web Services. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- SCRIPTS -->
   <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js" defer></script>
   <script src="https://assets.calendly.com/assets/external/widget.js" async defer></script>
   <script src="main.js" defer></script>
