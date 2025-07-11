@@ -1,98 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Blog | Elite Web Services</title>
-  <link rel="stylesheet" href="style.css">
-  <meta name="description" content="Insights and best practices on AWS architecture, cost optimization, security, and more from Elite Web Services.">
+  <meta name="description" content="Insights and best practices on AWS architecture, cost optimization, security, and more from Elite Web Services." />
+
+  <!-- FAVICON -->
+  <link rel="icon" href="assets/favicon.ico" />
+
+  <!-- GOOGLE FONTS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <!-- STYLESHEET -->
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- Unified Navbar -->
- <header class="navbar">
-  <div class="container navbar-content">
-    <a href="index.html" class="logo-container">
-      <img src="assets/logo.png" alt="Elite Web Services Logo" class="navbar-logo" />
-      <span class="brand-name">Elite Web Services</span>
-    </a>
-    <nav class="nav-menu">
-      <button class="nav-toggle icon-btn" aria-label="Toggle menu" aria-expanded="false">
-        <i data-feather="menu"></i>
-      </button>
-      <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="#features">Features</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="case-studies.html">Case Studies</a></li>
-        <li><a href="blog.html" class="active">Blog</a></li>
-        <li><a href="resources.html">Resources</a></li>
-        <li><a href="#consultation">Consultation</a></li>
-        <li><a href="#about">About</a></li>
-      </ul>
-    </nav>
-    <div class="nav-actions-wrap">
-      <button id="darkToggle" class="dark-toggle icon-btn" aria-label="Toggle Dark Mode">
-        <i data-feather="moon"></i>
-      </button>
+  <!-- NAVBAR (shared) -->
+  <header class="navbar">
+    <div class="container navbar-content">
+      <a href="index.html" class="logo-container">
+        <img src="assets/logo.png" alt="Elite Web Services Logo" class="navbar-logo" loading="lazy" />
+        <span class="brand-name">Elite Web Services</span>
+      </a>
+      <nav class="nav-menu">
+        <button class="nav-toggle icon-btn" aria-label="Toggle menu">
+          <i data-feather="menu"></i>
+        </button>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="case-studies.html">Case Studies</a></li>
+          <li><a href="blog.html" class="active">Blog</a></li>
+          <li><a href="resources.html">Resources</a></li>
+          <li><a href="#consultation">Consultation</a></li>
+          <li><a href="#about">About</a></li>
+        </ul>
+      </nav>
+      <div class="nav-actions-wrap">
+        <button id="darkToggle" class="dark-toggle icon-btn" aria-label="Toggle Dark Mode">
+          <i data-feather="moon"></i>
+        </button>
+      </div>
     </div>
-  </div>
-</header>
+  </header>
 
-
+  <!-- BLOG LIST -->
   <main>
     <section class="blog-list reveal">
       <div class="container">
         <h2>Latest Articles</h2>
         <div class="card-grid">
-          <article class="card" data-title="Zero Trust in Healthcare Cloud" data-details="Learn how to implement Zero Trust models on AWS for HIPAA compliance, leveraging IAM, WAF, and automated monitoring.">
-            <img src="assets/blog-zero-trust.jpg" alt="Zero Trust in Healthcare" class="card-img">
+          <article class="card reveal" data-title="Zero Trust in Healthcare Cloud" data-details="Learn how to implement Zero Trust models on AWS for HIPAA compliance, leveraging IAM, WAF, and automated monitoring.">
             <h3>Zero Trust in Healthcare Cloud</h3>
-            <p>Implement Zero Trust on AWS to secure healthcare workloads and ensure compliance.</p>
+            <p>Learn how to implement Zero Trust models on AWS for HIPAA compliance, leveraging IAM, WAF, and automated monitoring.</p>
             <a href="blog/zero-trust-healthcare.html" class="btn btn-secondary">Read More →</a>
           </article>
-          <article class="card" data-title="Scaling eCommerce for Black Friday" data-details="Architect scalable AWS solutions to handle 10× traffic surges with auto-scaling, caching, and rate-limiting strategies.">
-            <img src="assets/blog-black-friday.jpg" alt="Scaling eCommerce" class="card-img">
+          <article class="card reveal" data-title="Scaling eCommerce for Black Friday" data-details="Architect scalable AWS solutions to handle 10× traffic surges with auto-scaling, caching, and rate-limiting strategies.">
             <h3>Scaling eCommerce for Black Friday</h3>
-            <p>Learn strategies to scale AWS infrastructure for peak shopping events.</p>
+            <p>Architect scalable AWS solutions to handle 10× traffic surges with auto-scaling, caching, and rate-limiting strategies.</p>
             <a href="blog/scaling-ecommerce.html" class="btn btn-secondary">Read More →</a>
           </article>
-          <article class="card" data-title="Cost Optimization Best Practices" data-details="A deep dive into rightsizing, savings plans, and eliminating idle resources to cut AWS bills by 30%.">
-            <img src="assets/blog-cost-optimization.jpg" alt="Cost Optimization" class="card-img">
+          <article class="card reveal" data-title="Cost Optimization Best Practices" data-details="A deep dive into rightsizing, savings plans, and eliminating idle resources to cut AWS bills by 30%.">
             <h3>Cost Optimization Best Practices</h3>
-            <p>Reduce your AWS spend through effective cost management techniques.</p>
+            <p>A deep dive into rightsizing, savings plans, and eliminating idle resources to cut AWS bills by 30%.</p>
             <a href="blog/cost-optimization.html" class="btn btn-secondary">Read More →</a>
           </article>
-          <article class="card" data-title="Automating Security Alerts with Lambda" data-details="Integrate AWS Config, CloudWatch, and Lambda to auto-remediate security misconfigurations in minutes.">
-            <img src="assets/blog-security-automation.jpg" alt="Security Automation" class="card-img">
+          <article class="card reveal" data-title="Automating Security Alerts with Lambda" data-details="Integrate AWS Config, CloudWatch, and Lambda to auto-remediate security misconfigurations in minutes.">
             <h3>Automating Security Alerts with Lambda</h3>
-            <p>Automate responses to security threats using AWS Lambda and CloudWatch Events.</p>
+            <p>Integrate AWS Config, CloudWatch, and Lambda to auto-remediate security misconfigurations in minutes.</p>
             <a href="blog/security-automation.html" class="btn btn-secondary">Read More →</a>
           </article>
         </div>
-
-        
       </div>
     </section>
   </main>
 
-  <!-- Shared Modal & Back-to-Top -->
+  <!-- SHARED: MODAL & BACK-TO-TOP -->
   <div id="infoModal" class="modal" aria-hidden="true">
     <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-      <button class="modal-close" aria-label="Close">&times;</button>
+      <button class="modal-close icon-btn" aria-label="Close">
+        <i data-feather="x"></i>
+      </button>
       <h3 id="modalTitle"></h3>
       <p id="modalDesc"></p>
     </div>
   </div>
-  <button id="backToTop" aria-label="Back to Top">↑</button>
+  <button id="backToTop" class="icon-btn" aria-label="Back to Top">
+    <i data-feather="arrow-up"></i>
+  </button>
 
-  <!-- Footer -->
-  <footer>
-    <div class="container footer-content">
+  <!-- FOOTER -->
+  <footer class="reveal">
+    <div class="container">
       <p>&copy; 2025 Elite Web Services. All rights reserved.</p>
     </div>
   </footer>
 
-  <!-- Scripts -->
-  <script src="script.js" defer></script>
+  <!-- SCRIPTS -->
+  <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js" defer></script>
+  <script src="main.js" defer></script>
 </body>
 </html>
